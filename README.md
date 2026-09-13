@@ -35,9 +35,7 @@ Every Studio token is rendered into the real Desk and login page, including the 
 
 #### Theme Studio visual guide
 
-See the [complete Theme Studio visual guide](docs/theme-studio.md) for every settings group, responsive preview mode, publishing workflow, and contextual property editor.
-
-[![Theme Studio contextual property editor](docs/screenshots/theme-studio/floating/05-dashboard-chart.png)](docs/theme-studio.md)
+Theme Studio ships as a separate app, [theme_studio](https://github.com/DHI-Partners/theme_studio), installed only on the site that manages the theme; every other site on the bench renders the theme it publishes. Its [visual guide](https://github.com/DHI-Partners/theme_studio/blob/main/docs/theme-studio.md) covers every settings group, responsive preview mode, publishing workflow, and contextual property editor.
 
 #### Theme Studio capability map
 
@@ -158,7 +156,7 @@ Keycap-styled keyboard hints, thin floating scrollbars, brand-tinted text select
 
 ## Setup Your Branding (5 minutes)
 
-Open **Theme Studio** with `Ctrl+K` or visit `/desk/theme-studio`.
+On the site with the theme_studio app installed, open **Theme Studio** with `Ctrl+K` or visit `/desk/theme-studio`.
 
 | Field | What it does |
 |---|---|

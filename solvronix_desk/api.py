@@ -70,7 +70,7 @@ def _theme_config(settings):
 
 
 # ── 2. THEME CSS / CONFIG COMPATIBILITY ENDPOINTS ──────────────────────────────
-# Theme Studio owns publishing; these routes remain stable for older clients.
+# Publishing belongs to the separate Theme Studio app; these routes only render.
 @frappe.whitelist(allow_guest=True)
 def get_theme_css():
     """Return :root CSS variable overrides from Theme Settings.
@@ -87,20 +87,6 @@ def get_theme_css():
     except Exception:
         frappe.log_error("solvronix_desk.api.get_theme_css failed")
         return ""
-
-
-@frappe.whitelist()
-def get_theme_config():
-    """Return the editable Theme Studio configuration."""
-    frappe.only_for("System Manager")
-    return theme_engine.published_config(frappe.get_single("Theme Settings"))
-
-
-@frappe.whitelist()
-def save_theme_config(config):
-    """Compatibility alias for the complete Theme Studio publish endpoint."""
-    from solvronix_desk.theme_api import publish_theme_config
-    return publish_theme_config(config)
 
 
 # ── 3. PUBLIC BRANDING ─────────────────────────────────────────────────────────

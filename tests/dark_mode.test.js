@@ -6,9 +6,6 @@ const vm = require("node:vm");
 
 const darkModePath = path.join(__dirname, "..", "solvronix_desk", "public", "js", "dark_mode.js");
 const runtimePath = path.join(__dirname, "..", "solvronix_desk", "public", "js", "theme_runtime.js");
-const studioPath = path.join(
-  __dirname, "..", "solvronix_desk", "solvronix_desk", "page", "theme_studio", "theme_studio.js"
-);
 
 function loadDarkMode({ storedMode = null, osDark = false } = {}) {
   const values = new Map();
@@ -96,13 +93,9 @@ test("explicit toolbar mode persists locally and to the Frappe user", () => {
   assert.equal(userEvent && userEvent.detail.dark, false);
 });
 
-test("Theme Studio and theme runtime use non-persisting mode helpers", () => {
-  const studio = fs.readFileSync(studioPath, "utf8");
+test("Theme runtime uses non-persisting mode helpers", () => {
   const themeRuntime = fs.readFileSync(runtimePath, "utf8");
 
-  assert.match(studio, /window\.stApplyThemeMode\(c\.preferred_mode\)/);
-  assert.doesNotMatch(studio, /preferred_mode: response\.message\.config\.preferred_mode/);
-  assert.match(studio, /st-theme-os-mode-change\.stsThemeMode/);
   assert.match(themeRuntime, /window\.stApplyResolvedThemeMode\(preferredMode\)/);
   assert.doesNotMatch(themeRuntime, /stSetThemeMode\(preferredMode\)/);
 });

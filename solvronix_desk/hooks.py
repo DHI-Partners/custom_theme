@@ -28,7 +28,6 @@ app_include_css = [
     "/assets/solvronix_desk/css/dark_mode.css?v=15",
     "/assets/solvronix_desk/css/module_cards.css?v=2",
     "/assets/solvronix_desk/css/density.css?v=2",
-    "/assets/solvronix_desk/css/theme_studio.css?v=19",
     "/assets/solvronix_desk/css/grid_row_slide_panel.css?v=1",
 ]
 app_include_js = [
@@ -36,7 +35,7 @@ app_include_js = [
     "/assets/solvronix_desk/js/personalization.js?v=1",
     "/assets/solvronix_desk/js/solvronix_desk.js?v=64",
     "/assets/solvronix_desk/js/sidebar.js?v=3",
-    "/assets/solvronix_desk/js/command_palette.js?v=9",
+    "/assets/solvronix_desk/js/command_palette.js?v=10",
     "/assets/solvronix_desk/js/progressive_forms.js?v=4",
     "/assets/solvronix_desk/js/notification_center.js?v=4",
     "/assets/solvronix_desk/js/module_cards.js?v=10",

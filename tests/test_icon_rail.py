@@ -15,7 +15,6 @@ HOOKS = ROOT / "solvronix_desk" / "hooks.py"
 THEME_SETTINGS_JSON = ROOT / "solvronix_desk" / "solvronix_desk" / "doctype" / "theme_settings" / "theme_settings.json"
 THEME_SETTINGS_PY = ROOT / "solvronix_desk" / "solvronix_desk" / "doctype" / "theme_settings" / "theme_settings.py"
 THEME_ENGINE = ROOT / "solvronix_desk" / "theme_engine.py"
-THEME_STUDIO_JS = ROOT / "solvronix_desk" / "solvronix_desk" / "page" / "theme_studio" / "theme_studio.js"
 
 
 class FrappeStub(types.ModuleType):
@@ -306,20 +305,11 @@ class IconRailTest(unittest.TestCase):
         self.assertIn('"--st-rail-bg"', engine)
         self.assertIn('"--st-rail-active"', engine)
 
-    def test_theme_studio_exposes_sidebar_layout_control(self):
-        studio = THEME_STUDIO_JS.read_text(encoding="utf-8")
-
-        self.assertIn('"sidebar_layout", "Sidebar layout", "select", ["Tree", "Icon Rail"]', studio)
-        self.assertIn("icon_rail_width", studio)
-        self.assertIn("_apply_draft_to_desk", studio)
-        self.assertIn("--st-rail-width:", studio)
-
     def test_rail_assets_are_cache_busted(self):
         hooks = HOOKS.read_text(encoding="utf-8")
 
         self.assertIn("/assets/solvronix_desk/css/sidebar.css?v=31", hooks)
         self.assertIn("/assets/solvronix_desk/js/solvronix_desk.js?v=64", hooks)
-        self.assertIn("/assets/solvronix_desk/css/theme_studio.css?v=19", hooks)
 
     def test_legacy_config_treats_never_set_icon_rail_width_as_unset_not_zero(self):
         """Regression test: frappe.utils.cint() coercion serializes an Int

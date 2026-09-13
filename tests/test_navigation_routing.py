@@ -48,7 +48,7 @@ class NavigationRoutingTest(unittest.TestCase):
         hooks = HOOKS.read_text(encoding="utf-8")
 
         self.assertIn("/assets/solvronix_desk/js/solvronix_desk.js?v=64", hooks)
-        self.assertIn("/assets/solvronix_desk/js/command_palette.js?v=9", hooks)
+        self.assertIn("/assets/solvronix_desk/js/command_palette.js?v=10", hooks)
         self.assertIn("/assets/solvronix_desk/js/module_cards.js?v=10", hooks)
 
 

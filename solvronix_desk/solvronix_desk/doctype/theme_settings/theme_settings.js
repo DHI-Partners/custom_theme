@@ -138,21 +138,26 @@ frappe.ui.form.on("Theme Settings", {
 			allow_raw = allow_raw || sessionStorage.getItem("st_allow_raw_theme_settings") === "1";
 			sessionStorage.removeItem("st_allow_raw_theme_settings");
 		} catch (e) {}
-		if (!allow_raw) {
+		/* Theme Studio is its own app, installed only on the theme's master site;
+		   everywhere else this form stays the only settings UI. */
+		const has_studio = !!(frappe.boot.versions && frappe.boot.versions.theme_studio);
+		if (!allow_raw && has_studio) {
 			frappe.set_route("theme-studio");
 			return;
 		}
 		frm.__st_allow_raw_settings = true;
 
-		if (frm.dashboard && typeof frm.dashboard.set_headline_alert === "function") {
-			frm.dashboard.set_headline_alert(
-				__("Advanced storage view. Use Theme Studio for normal theme and feature configuration."),
-				"blue"
-			);
+		if (has_studio) {
+			if (frm.dashboard && typeof frm.dashboard.set_headline_alert === "function") {
+				frm.dashboard.set_headline_alert(
+					__("Advanced storage view. Use Theme Studio for normal theme and feature configuration."),
+					"blue"
+				);
+			}
+			frm.add_custom_button(__("Back to Theme Studio"), function () {
+				frappe.set_route("theme-studio");
+			}, __("Actions"));
 		}
-		frm.add_custom_button(__("Back to Theme Studio"), function () {
-			frappe.set_route("theme-studio");
-		}, __("Actions"));
 
 		frm.add_custom_button(__("Preview Theme"), function () {
 			frappe.call({

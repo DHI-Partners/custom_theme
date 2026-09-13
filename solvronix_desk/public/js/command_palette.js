@@ -165,16 +165,17 @@
     /* ── 4. DEFAULT GROUPS / FUZZY SEARCH ─────────────────────────────────── */
     _render_default: function () {
       var hasERPNext = !!(frappe.boot && frappe.boot.versions && frappe.boot.versions.erpnext);
-      var quick = hasERPNext ? [
+      /* Theme Studio is its own app, installed only on the theme's master site. */
+      var studio = frappe.boot && frappe.boot.versions && frappe.boot.versions.theme_studio ? [
+        { label: __("Theme Studio"),       sub: __("Visual theme editor"), type: "action", action: function () { frappe.set_route("theme-studio"); } },
+      ] : [];
+      var quick = (hasERPNext ? [
         { label: __("New Sales Invoice"),  sub: __("Create document"), type: "create", action: function () { frappe.new_doc("Sales Invoice"); } },
         { label: __("New Purchase Order"), sub: __("Create document"), type: "create", action: function () { frappe.new_doc("Purchase Order"); } },
         { label: __("New Customer"),       sub: __("Create document"), type: "create", action: function () { frappe.new_doc("Customer"); } },
-        { label: __("Theme Studio"),       sub: __("Visual theme editor"), type: "action", action: function () { frappe.set_route("theme-studio"); } },
+      ] : []).concat(studio, [
         { label: __("Home"),               sub: __("Workspace"),        type: "workspace", action: function () { frappe.set_route(""); } },
-      ] : [
-        { label: __("Theme Studio"),       sub: __("Visual theme editor"), type: "action", action: function () { frappe.set_route("theme-studio"); } },
-        { label: __("Home"),               sub: __("Workspace"),        type: "workspace", action: function () { frappe.set_route(""); } },
-      ];
+      ]);
       var rpt_count = Object.keys((frappe.boot && frappe.boot.allowed_reports) || {}).length;
       var dt_count  = ((frappe.boot && frappe.boot.user && frappe.boot.user.can_read) || []).length;
       var count_str = rpt_count + " " + __("reports") + " · " + dt_count + " " + __("doctypes indexed");

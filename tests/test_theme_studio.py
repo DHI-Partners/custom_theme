@@ -1,4 +1,4 @@
-"""Integration-contract coverage for Theme Studio's public implementation."""
+"""Runtime-side contracts that the separate Theme Studio app relies on."""
 
 from pathlib import Path
 import ast
@@ -14,11 +14,12 @@ API = ROOT / "solvronix_desk" / "api.py"
 THEME_API = ROOT / "solvronix_desk" / "theme_api.py"
 ENGINE = ROOT / "solvronix_desk" / "theme_engine.py"
 HOOKS = ROOT / "solvronix_desk" / "hooks.py"
+PATCHES = ROOT / "solvronix_desk" / "patches.txt"
 SETTINGS = ROOT / "solvronix_desk" / "solvronix_desk" / "doctype" / "theme_settings" / "theme_settings.json"
+SETTINGS_JS = SETTINGS.with_name("theme_settings.js")
 PREFERENCE = ROOT / "solvronix_desk" / "solvronix_desk" / "doctype" / "theme_preference" / "theme_preference.json"
-PAGE = ROOT / "solvronix_desk" / "solvronix_desk" / "page" / "theme_studio" / "theme_studio.js"
-PAGE_JSON = PAGE.with_name("theme_studio.json")
-CSS = ROOT / "solvronix_desk" / "public" / "css" / "theme_studio.css"
+PAGE_DIR = ROOT / "solvronix_desk" / "solvronix_desk" / "page" / "theme_studio"
+PALETTE_JS = ROOT / "solvronix_desk" / "public" / "js" / "command_palette.js"
 DESK_CSS = ROOT / "solvronix_desk" / "public" / "css" / "solvronix_desk.css"
 DESK_JS = ROOT / "solvronix_desk" / "public" / "js" / "solvronix_desk.js"
 SIDEBAR_CSS = ROOT / "solvronix_desk" / "public" / "css" / "sidebar.css"
@@ -26,7 +27,7 @@ DARK_CSS = ROOT / "solvronix_desk" / "public" / "css" / "dark_mode.css"
 BOOT = ROOT / "solvronix_desk" / "boot.py"
 
 
-class ThemeStudioTest(unittest.TestCase):
+class ThemeRuntimeContractTest(unittest.TestCase):
     def test_chart_runtime_is_bootstrapped_after_theme_runtime(self):
         hooks = HOOKS.read_text(encoding="utf-8")
         theme_index = hooks.index("/assets/solvronix_desk/js/theme_runtime.js")
@@ -43,46 +44,26 @@ class ThemeStudioTest(unittest.TestCase):
         self.assertIn('"chart_schema": chart_config.load_schema()', api)
         self.assertIn("solvronixChartRuntime.setConfig(config, chartSchema)", runtime)
         self.assertIn("runtime.chart_schema", runtime)
-    def test_studio_state_exposes_canonical_chart_schema_and_safe_registry(self):
-        source = THEME_API.read_text(encoding="utf-8")
 
-        self.assertIn("from solvronix_desk import chart_config, chart_registry", source)
-        self.assertIn('"chart_schema": chart_config.load_schema()', source)
-        self.assertIn('"chart_registry": chart_registry.list_chart_sources(', source)
-        self.assertIn('published.get("chart_overrides", {}).keys()', source)
+    def test_studio_lives_in_its_own_app(self):
+        hooks = HOOKS.read_text(encoding="utf-8")
+        api = THEME_API.read_text(encoding="utf-8")
 
-    def test_every_chart_config_persistence_path_uses_strict_validation(self):
-        source = THEME_API.read_text(encoding="utf-8")
-        tree = ast.parse(source)
-        functions = {
-            node.name: ast.get_source_segment(source, node) or ""
-            for node in tree.body
-            if isinstance(node, ast.FunctionDef)
-        }
+        self.assertFalse(PAGE_DIR.exists())
+        self.assertNotIn("theme_studio.css", hooks)
+        for endpoint in ("publish_theme_config", "save_theme_draft", "manage_theme_profile", "clear_theme_cache"):
+            self.assertNotIn(f"def {endpoint}", api)
+        self.assertNotIn("save_theme_config", API.read_text(encoding="utf-8"))
+        self.assertIn("solvronix_desk.patches.remove_theme_studio_page", PATCHES.read_text(encoding="utf-8"))
 
-        self.assertIn("strict_charts=True", functions["validate_persisted_config"])
-        for name in (
-            "save_theme_draft",
-            "publish_theme_config",
-            "manage_theme_profile",
-            "restore_theme_version",
-        ):
-            self.assertIn("validate_persisted_config", functions[name], name)
-        self.assertIn("validate_referenced_profiles", functions["save_theme_assignments"])
-        self.assertIn("validate_referenced_profiles", functions["save_theme_schedule"])
+    def test_studio_entry_points_require_the_studio_app(self):
+        palette = PALETTE_JS.read_text(encoding="utf-8")
+        settings_js = SETTINGS_JS.read_text(encoding="utf-8")
 
-    def test_legacy_sync_projects_canonical_chart_colors(self):
-        source = THEME_API.read_text(encoding="utf-8")
-        tree = ast.parse(source)
-        function = next(
-            node
-            for node in tree.body
-            if isinstance(node, ast.FunctionDef) and node.name == "sync_legacy_fields"
-        )
-        segment = ast.get_source_segment(source, function) or ""
-
-        self.assertIn('"chart_background"', segment)
-        self.assertIn('"chart_palette"', segment)
+        self.assertIn("frappe.boot.versions.theme_studio", palette)
+        self.assertIn("frappe.boot.versions.theme_studio", settings_js)
+        self.assertIn("st_allow_raw_theme_settings", settings_js)
+        self.assertIn('frappe.set_route("theme-studio")', settings_js)
 
     def test_workspace_api_failures_expose_non_sensitive_unavailable_flag(self):
         source = API.read_text(encoding="utf-8")
@@ -116,11 +97,6 @@ class ThemeStudioTest(unittest.TestCase):
             )
             self.assertEqual(namespace["get_workspaces"](), expected)
 
-    def test_page_is_restricted_to_system_managers(self):
-        page = json.loads(PAGE_JSON.read_text(encoding="utf-8"))
-        self.assertEqual(page["name"], "theme-studio")
-        self.assertEqual(page["roles"], [{"role": "System Manager"}])
-
     def test_theme_settings_contain_visual_tokens(self):
         settings = json.loads(SETTINGS.read_text(encoding="utf-8"))
         fields = {field["fieldname"] for field in settings["fields"]}
@@ -145,56 +121,10 @@ class ThemeStudioTest(unittest.TestCase):
             {"user", "theme_profile"},
         )
 
-    def test_api_validates_and_persists_studio_configuration(self):
-        api = THEME_API.read_text(encoding="utf-8")
-        engine = ENGINE.read_text(encoding="utf-8")
-        self.assertIn('frappe.only_for("System Manager")', api)
-        self.assertIn("def publish_theme_config(", api)
-        self.assertIn("def save_theme_draft(", api)
-        self.assertIn("def manage_theme_profile(", api)
-        self.assertIn("HEX_COLOR.fullmatch", engine)
-        self.assertIn("settings.theme_studio_config", api)
-        self.assertIn("settings.theme_enabled = 1", api)
-
-    def test_editor_has_drag_history_and_responsive_preview(self):
-        js = PAGE.read_text(encoding="utf-8")
-        css = CSS.read_text(encoding="utf-8")
-        self.assertIn('draggable="true"', js)
-        self.assertIn('addEventListener("dragover"', js)
-        self.assertIn("undo()", js)
-        self.assertIn("redo()", js)
-        self.assertIn('[data-device="mobile"]', css)
-        self.assertIn("sts-preview-collapse", js)
-        self.assertIn("sts-toolbar-left", js)
-        self.assertIn("st-studio-draft", js)
-        self.assertIn("on_page_hide", js)
-        self.assertIn("_resolved_visual_config", js)
-        self.assertIn("_is_dark_palette", js)
-        self.assertIn("_mix_hex", js)
-        self.assertIn("this._apply_draft_to_desk(visual)", js)
-
-    def test_editor_typography_stays_readable(self):
-        css = CSS.read_text(encoding="utf-8")
-        self.assertIn("READABLE TYPOGRAPHY SCALE", css)
-        self.assertIn(".sts-field > label { font-size: 13px; }", css)
-        self.assertIn(".sts-field textarea { font-size: 13px;", css)
-        self.assertIn(".sts-table-row { font-size: 11px; }", css)
-
-    def test_login_preview_matches_public_login_structure(self):
-        js = PAGE.read_text(encoding="utf-8")
-        css = CSS.read_text(encoding="utf-8")
+    def test_login_runtime_matches_public_login_structure(self):
         login_runtime = (
             ROOT / "solvronix_desk" / "public" / "js" / "login_theme.js"
         ).read_text(encoding="utf-8")
-        for token in (
-            "sts-login-card-head", "sts-login-card-body", "sts-login-company-logo",
-            "sts-login-app-logo", "sts-login-input", "sts-login-forgot",
-            "data-login-powered", "data-login-footer",
-        ):
-            self.assertIn(token, js + css)
-        self.assertIn("var loginSettings = loginConfig || c;", js)
-        self.assertIn('"--studio-login-background": loginBackground', js)
-        self.assertIn("background-image: var(--studio-login-background)", css)
         self.assertIn("image.addEventListener('error'", login_runtime)
         self.assertIn("applyPreferredMode(branding.preferred_mode)", login_runtime)
         self.assertIn("normalizeCardGeometry()", login_runtime)
@@ -207,28 +137,7 @@ class ThemeStudioTest(unittest.TestCase):
         self.assertIn("width: 100% !important;", login_css)
         self.assertIn("overflow: hidden !important;", login_css)
         self.assertIn(".st-login-company-fallback", login_css)
-        self.assertNotIn("Powered by Solvronix", login_css + js)
-
-    def test_preview_elements_expose_contextual_property_inspector(self):
-        js = PAGE.read_text(encoding="utf-8")
-        css = CSS.read_text(encoding="utf-8")
-        for inspector in (
-            "dashboard.heading", "dashboard.metrics", "dashboard.chart",
-            "form.heading", "form.card", "form.fields", "form.actions",
-            "table.heading", "table.grid", "table.status",
-            "login.background", "login.branding", "login.card",
-            "login.fields", "login.button", "login.footer",
-        ):
-            self.assertIn(f'"{inspector}"', js)
-        self.assertIn("_inspector_catalog()", js)
-        self.assertIn("_render_inspector()", js)
-        self.assertIn("_position_inspector(element)", js)
-        self.assertIn("_sync_setting_inputs(key, this)", js)
-        self.assertIn("data-open-control-section", js)
-        self.assertIn(".sts-context-inspector", css)
-        self.assertIn('.sts-context-inspector[data-side="right"]', css)
-        self.assertIn('.sts-context-inspector[data-side="left"]', css)
-        self.assertIn(".is-inspected", css)
+        self.assertNotIn("Powered by Solvronix", login_css)
 
     def test_published_navigation_tokens_reach_actual_desk_selectors(self):
         engine = ENGINE.read_text(encoding="utf-8")
@@ -247,8 +156,7 @@ class ThemeStudioTest(unittest.TestCase):
 
     def test_assets_are_versioned(self):
         hooks = HOOKS.read_text(encoding="utf-8")
-        self.assertIn("/assets/solvronix_desk/css/theme_studio.css?v=19", hooks)
-        self.assertIn("/assets/solvronix_desk/js/command_palette.js?v=9", hooks)
+        self.assertIn("/assets/solvronix_desk/js/command_palette.js?v=10", hooks)
         self.assertIn("/assets/solvronix_desk/js/dark_mode.js?v=12", hooks)
         self.assertIn("/assets/solvronix_desk/js/solvronix_desk.js?v=64", hooks)
         self.assertIn("/assets/solvronix_desk/js/theme_runtime.js?v=8", hooks)
@@ -257,99 +165,27 @@ class ThemeStudioTest(unittest.TestCase):
         self.assertIn("/assets/solvronix_desk/js/login_theme.js?v=8", hooks)
         self.assertIn('"on_update": "solvronix_desk.events.theme_settings_on_update"', hooks)
 
-    def test_complete_studio_feature_surfaces_exist(self):
-        js = PAGE.read_text(encoding="utf-8")
+    def test_runtime_surfaces_used_by_studio_exist(self):
         api = THEME_API.read_text(encoding="utf-8")
         engine = ENGINE.read_text(encoding="utf-8")
-        for token in (
-            "Main colours", "Navbar & sidebar", "Buttons & fields", "Typography",
-            "Cards, lists & tables", "Workspace & dashboard", "Login & branding",
-            "Layout", "Smart Home & features", "Accessibility", "Developer options", "Profiles & deployment",
-        ):
-            self.assertIn(token, js)
-        for endpoint in (
-            "save_theme_draft", "publish_theme_config", "manage_theme_profile",
-            "restore_theme_version", "import_theme_profile",
-            "save_theme_assignments", "save_theme_schedule", "clear_theme_cache",
-            "get_resolved_theme_runtime",
-        ):
-            self.assertIn(f"def {endpoint}", api)
+        self.assertIn("def get_resolved_theme_runtime", api)
+        self.assertIn("HEX_COLOR.fullmatch", engine)
         self.assertIn("builtin-high-contrast", engine)
         self.assertIn("wcag_failures", engine)
         self.assertIn("custom_js", engine)
         self.assertIn("scoped_rules", engine)
         self.assertIn("def resolve_profile_id(", engine)
-        self.assertIn('"preferred_mode", "Theme mode"', js)
-        self.assertIn("change.st_theme_mode_bridge", DESK_JS.read_text(encoding="utf-8"))
-        self.assertIn("_sync_profile_actions()", js)
-        self.assertIn('__("Current Theme Copy")', js)
-        self.assertIn('data-profile-action="apply"', js)
+        for key in ("tagline", "enable_command_palette", "enable_smart_home"):
+            self.assertIn(f'"{key}"', engine)
+        desk_js = DESK_JS.read_text(encoding="utf-8")
+        self.assertIn("change.st_theme_mode_bridge", desk_js)
         runtime = (ROOT / "solvronix_desk" / "public" / "js" / "theme_runtime.js").read_text(encoding="utf-8")
-        desk_js = (ROOT / "solvronix_desk" / "public" / "js" / "solvronix_desk.js").read_text(encoding="utf-8")
         self.assertIn("st-theme-runtime-refresh", runtime)
         self.assertIn("window.stApplyThemeCss", desk_js)
         self.assertIn("duplicate.remove()", desk_js)
         self.assertIn("if (config && Object.keys(config).length)", runtime)
         self.assertIn("runtime.preview", runtime)
         self.assertIn("if (!Array.isArray(route)) route = [];", runtime)
-
-    def test_hybrid_charts_preview_scene_is_declared_after_workspace(self):
-        source = PAGE.read_text(encoding="utf-8")
-
-        workspace = source.index('data-preview-scene="workspace"')
-        charts = source.index('data-preview-scene="charts"')
-        self.assertGreater(charts, workspace)
-        self.assertIn("_charts_scene_html()", source)
-        for kind in ("line", "bar", "donut", "sparkline"):
-            self.assertIn(f'card("{kind}"', source)
-
-    def test_hybrid_charts_preview_is_responsive_theme_driven_and_motion_safe(self):
-        css = CSS.read_text(encoding="utf-8")
-
-        for token in (
-            ".sts-charts-gallery",
-            ".sts-chart-preview-card.is-inspected",
-            "--sts-chart-surface",
-            "--sts-chart-series-1",
-            "--sts-chart-line-width",
-            "--sts-chart-bar-radius",
-            ".sts-chart-donut",
-            "@media (prefers-reduced-motion: reduce)",
-        ):
-            self.assertIn(token, css)
-        self.assertRegex(css, r'\[data-device="(?:tablet|mobile)"\][^{]*\.sts-charts-gallery')
-
-    def test_theme_settings_are_unified_into_studio(self):
-        js = PAGE.read_text(encoding="utf-8")
-        engine = ENGINE.read_text(encoding="utf-8")
-        api = THEME_API.read_text(encoding="utf-8")
-        settings_js = (
-            ROOT / "solvronix_desk" / "solvronix_desk" / "doctype" /
-            "theme_settings" / "theme_settings.js"
-        ).read_text(encoding="utf-8")
-
-        for key in ("tagline", "enable_command_palette", "enable_smart_home"):
-            self.assertIn(f'"{key}"', js)
-            self.assertIn(f'"{key}"', engine)
-            self.assertIn(f'config["{key}"]', api)
-        self.assertIn('"attach-image"', js)
-        self.assertIn("st_allow_raw_theme_settings", js)
-        self.assertIn("st_allow_raw_theme_settings", settings_js)
-        self.assertIn('frappe.set_route("theme-studio")', settings_js)
-
-    def test_loading_a_profile_preserves_site_identity_in_the_editor(self):
-        """Regression test: loading ANY profile (built-in or custom) directly
-        replaces this.config with the profile's own stored config, which
-        always carries blank company_logo/app_title/favicon/tagline unless
-        the profile explicitly set them — confirmed live on
-        erp.solvronix.com, where loading a built-in profile then publishing
-        silently erased the real company logo/name. The editor must restore
-        these from what was there before loading, mirroring
-        theme_engine.resolve_profile_config()'s server-side fix."""
-        js = PAGE.read_text(encoding="utf-8")
-
-        self.assertIn("var previousIdentity = {", js)
-        self.assertIn("if (!self.config[field]) self.config[field] = previousIdentity[field];", js)
 
 
 if __name__ == "__main__":
