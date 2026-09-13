@@ -1,0 +1,1441 @@
+# Russian translations for Solvronix Desk.
+# Copyright (C) 2026 Solvronix
+# This file is distributed under the same license as the Solvronix Desk project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Solvronix Desk VERSION\n"
+"Report-Msgid-Bugs-To: sales@solvronix.com\n"
+"POT-Creation-Date: 2026-09-13 19:41+0000\n"
+"PO-Revision-Date: 2026-09-13 19:33+0000\n"
+"Last-Translator: sales@solvronix.com\n"
+"Language: ru\n"
+"Language-Team: sales@solvronix.com\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:281
+msgid "A clean daily date card"
+msgstr "Аккуратная карточка с датой на день"
+
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.js:87
+msgid "A preset with that name already exists"
+msgstr "Пресет с таким названием уже существует"
+
+#. Label of the accent_color (Color) field in DocType 'Theme Preset'
+#. Label of the accent_color (Color) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_preset/theme_preset.json
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Accent Color"
+msgstr "Акцентный цвет"
+
+#: solvronix_desk/public/js/solvronix_desk.js:781
+msgid "Account"
+msgstr ""
+
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.js:159
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.js:178
+msgid "Actions"
+msgstr ""
+
+#. Label of the active_profile (Data) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Active Theme Profile"
+msgstr "Активный профиль темы"
+
+#: solvronix_desk/public/js/solvronix_desk.js:562
+msgid "Activity"
+msgstr ""
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:178
+msgid "Add to dashboard"
+msgstr "Добавить на панель"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:102
+msgid "Add widgets"
+msgstr "Добавить виджеты"
+
+#. Label of the preview_admin_only (Check) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Administrator-only Preview"
+msgstr "Предпросмотр только для администратора"
+
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.js:153
+msgid "Advanced storage view. Use Theme Studio for normal theme and feature configuration."
+msgstr "Расширенный вид хранения. Для обычной настройки темы и функций используйте Theme Studio."
+
+#. Name of a role
+#: solvronix_desk/solvronix_desk/doctype/theme_preference/theme_preference.json
+msgid "All"
+msgstr ""
+
+#: solvronix_desk/public/js/module_cards.js:272
+#: solvronix_desk/solvronix_desk/page/all_apps/all_apps.js:15
+#: solvronix_desk/solvronix_desk/page/all_apps/all_apps.js:44
+msgid "All Apps"
+msgstr "Все приложения"
+
+#: solvronix_desk/public/js/solvronix_desk.js:757
+#: solvronix_desk/public/js/solvronix_desk.js:1001
+msgid "All Options"
+msgstr "Все настройки"
+
+#: solvronix_desk/public/js/solvronix_desk.js:1143
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:112
+msgid "All Workspaces"
+msgstr "Все рабочие пространства"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:1046
+msgid "All clear"
+msgstr "Всё в порядке"
+
+#. Label of the allow_user_theme (Check) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Allow User Theme Choice"
+msgstr "Разрешить пользователям выбирать тему"
+
+#. Description of the 'Allow User Theme Choice' (Check) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Allow users to select an assigned or available theme profile."
+msgstr "Разрешить пользователям выбирать назначенный или доступный профиль темы."
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:176
+msgid "Amber"
+msgstr "Янтарный"
+
+#: solvronix_desk/public/js/solvronix_desk.js:1044
+msgid "Appearance"
+msgstr "Внешний вид"
+
+#. Description of the 'Enable Published Theme' (Check) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Apply the published Theme Studio configuration."
+msgstr "Применить опубликованную конфигурацию Theme Studio."
+
+#: solvronix_desk/public/js/solvronix_desk.js:341
+msgid "Apps"
+msgstr ""
+
+#. Option for the 'Default Theme Mode' (Select) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Auto"
+msgstr ""
+
+#: solvronix_desk/public/js/solvronix_desk.js:1051
+msgctxt "Theme mode"
+msgid "Auto"
+msgstr "Авто"
+
+#: solvronix_desk/public/js/dark_mode.js:164
+msgid "Auto (follows your OS)"
+msgstr "Авто (как в системе)"
+
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.js:157
+msgid "Back to Theme Studio"
+msgstr "Назад в Theme Studio"
+
+#: solvronix_desk/public/js/module_cards.js:52
+msgid "Balance sheet, P&L & ledgers"
+msgstr "Баланс, прибыли и убытки, книги учёта"
+
+#. Label of the base_font_size (Select) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Base Font Size"
+msgstr "Базовый размер шрифта"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:175
+msgid "Blue"
+msgstr ""
+
+#. Label of the brand_color (Color) field in DocType 'Theme Preset'
+#. Label of the brand_color (Color) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_preset/theme_preset.json
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Brand Color"
+msgstr "Фирменный цвет"
+
+#. Label of the section_branding (Section Break) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Branding"
+msgstr "Брендинг"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:151
+msgid "Build your own"
+msgstr "Создайте свой"
+
+#. Label of the card_background (Color) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Card Background"
+msgstr "Фон карточек"
+
+#. Label of the shadow_style (Select) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Card Shadow"
+msgstr "Тень карточек"
+
+#: solvronix_desk/public/js/solvronix_desk.js:614
+msgid "Change language"
+msgstr "Сменить язык"
+
+#: solvronix_desk/public/js/chart_runtime.js:128
+msgid "Chart customization failed"
+msgstr "Не удалось настроить диаграмму"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:136
+msgid "Click a widget or drag it onto your dashboard."
+msgstr "Нажмите на виджет или перетащите его на панель."
+
+#: solvronix_desk/public/js/command_palette.js:127
+#: solvronix_desk/public/js/notification_center.js:74
+#: solvronix_desk/public/js/solvronix_desk.js:1002
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:137
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:165
+msgid "Close"
+msgstr ""
+
+#: solvronix_desk/public/js/solvronix_desk.js:357
+msgctxt "Sidebar"
+msgid "Collapse"
+msgstr "Свернуть"
+
+#. Description of the 'Accent Color' (Color) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Color for buttons and highlights"
+msgstr "Цвет кнопок и выделений"
+
+#. Label of the section_colors (Section Break) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Colors"
+msgstr "Цвета"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:175
+msgid "Colour"
+msgstr ""
+
+#. Option for the 'Default Density' (Select) field in DocType 'Theme Settings'
+#: solvronix_desk/public/js/solvronix_desk.js:1058
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Comfortable"
+msgstr "Просторный"
+
+#: solvronix_desk/public/js/command_palette.js:112
+msgid "Command Palette"
+msgstr "Командная палитра"
+
+#. Option for the 'Default Density' (Select) field in DocType 'Theme Settings'
+#: solvronix_desk/public/js/solvronix_desk.js:1059
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Compact"
+msgstr "Компактный"
+
+#. Description of the 'Default Density' (Select) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Compact shows more rows on screen. Each user can override in All Options."
+msgstr "Компактный режим показывает больше строк на экране. Каждый пользователь может изменить это в «Все настройки»."
+
+#. Label of the company_name (Data) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Company Name"
+msgstr ""
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:171
+msgid "Content"
+msgstr ""
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:177
+msgid "Coral"
+msgstr "Коралловый"
+
+#. Label of the corner_radius (Int) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Corner Radius"
+msgstr "Скругление углов"
+
+#: solvronix_desk/public/js/notification_center.js:242
+msgid "Could not load events"
+msgstr "Не удалось загрузить события"
+
+#: solvronix_desk/public/js/notification_center.js:163
+msgid "Could not load notifications"
+msgstr "Не удалось загрузить уведомления"
+
+#: solvronix_desk/public/js/solvronix_desk.js:987
+msgid "Could not update language."
+msgstr "Не удалось сменить язык."
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:152
+msgid "Create a note, number or shortcut in seconds"
+msgstr "Создайте заметку, число или ярлык за секунды"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:164
+msgid "Create a widget"
+msgstr "Создать виджет"
+
+#: solvronix_desk/public/js/command_palette.js:173
+#: solvronix_desk/public/js/command_palette.js:174
+#: solvronix_desk/public/js/command_palette.js:175
+msgid "Create document"
+msgstr "Создать документ"
+
+#: solvronix_desk/public/js/command_palette.js:229
+msgid "Create document (if DocType exists)"
+msgstr "Создать документ (если тип документа существует)"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:280
+msgid "Current time and a calm focus cue"
+msgstr "Текущее время и спокойная подсказка для фокуса"
+
+#. Label of the custom_presets (Table) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Custom Presets"
+msgstr "Свои пресеты"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:323
+msgid "Custom widget"
+msgstr "Свой виджет"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:109
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:613
+msgid "Customize layout"
+msgstr "Настроить раскладку"
+
+#. Option for the 'Default Theme Mode' (Select) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Dark"
+msgstr ""
+
+#: solvronix_desk/public/js/dark_mode.js:164
+#: solvronix_desk/public/js/solvronix_desk.js:1050
+msgctxt "Theme mode"
+msgid "Dark"
+msgstr "Тёмная"
+
+#. Option for the 'Base Font Size' (Select) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Default"
+msgstr ""
+
+#. Label of the default_density (Select) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Default Density"
+msgstr "Плотность по умолчанию"
+
+#. Label of the default_theme_mode (Select) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Default Theme Mode"
+msgstr "Режим темы по умолчанию"
+
+#. Description of the 'Default Theme Mode' (Select) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Default appearance for new users. Auto follows the operating system. Each user can override from the toolbar."
+msgstr "Внешний вид по умолчанию для новых пользователей. «Авто» следует настройкам операционной системы. Каждый пользователь может изменить это на панели инструментов."
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:504
+msgid "Default layout restored"
+msgstr "Раскладка по умолчанию восстановлена"
+
+#: solvronix_desk/public/js/solvronix_desk.js:1056
+msgid "Density"
+msgstr "Плотность"
+
+#. Description of the 'Start in Dark Mode' (Check) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Deprecated — use Default Theme Mode instead"
+msgstr "Устарело — используйте «Режим темы по умолчанию»"
+
+#: solvronix_desk/public/js/command_palette.js:220
+msgid "DocTypes"
+msgstr "Типы документов"
+
+#: solvronix_desk/public/js/module_cards.js:84
+msgid "Doctypes, scripts & customisation"
+msgstr "Типы документов, скрипты и настройка"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:613
+msgid "Done"
+msgstr ""
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:256
+msgid "Drag to rearrange"
+msgstr "Перетащите, чтобы изменить порядок"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:119
+msgid "Drag widgets to rearrange them. Your layout saves automatically."
+msgstr "Перетаскивайте виджеты, чтобы изменить порядок. Раскладка сохраняется автоматически."
+
+#: solvronix_desk/public/js/solvronix_desk.js:803
+msgid "Edit Profile"
+msgstr ""
+
+#. Option for the 'Card Shadow' (Select) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Elevated"
+msgstr "Выраженная"
+
+#: solvronix_desk/public/js/module_cards.js:64
+#: solvronix_desk/public/js/module_cards.js:65
+msgid "Employees, attendance & leave"
+msgstr "Сотрудники, посещаемость и отпуска"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:315
+msgid "Empty note"
+msgstr "Пустая заметка"
+
+#. Label of the enable_command_palette (Check) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Enable Command Palette (Ctrl+K)"
+msgstr "Включить командную палитру (Ctrl+K)"
+
+#. Label of the theme_enabled (Check) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Enable Published Theme"
+msgstr "Включить опубликованную тему"
+
+#. Label of the enable_smart_home (Check) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Enable Smart Home Screen"
+msgstr "Включить умный главный экран"
+
+#: solvronix_desk/public/js/notification_center.js:85
+msgid "Events"
+msgstr ""
+
+#. Description of the 'Sidebar Width' (Int) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Expanded sidebar width in pixels (200–320)."
+msgstr "Ширина развёрнутой боковой панели в пикселях (200–320)."
+
+#. Label of the favicon (Attach Image) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Favicon"
+msgstr "Значок сайта"
+
+#. Label of the section_features (Section Break) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Features"
+msgstr "Функции"
+
+#. Description of the 'Visual Design' (Section Break) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Fine-tune the desk visually from Theme Studio. Empty color fields use the automatic brand palette."
+msgstr "Точно настраивайте интерфейс визуально в Theme Studio. Пустые поля цвета используют автоматическую фирменную палитру."
+
+#: solvronix_desk/public/js/module_cards.js:76
+msgid "Fixed assets & depreciation"
+msgstr "Основные средства и амортизация"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:280
+msgid "Focus Clock"
+msgstr "Часы фокуса"
+
+#: solvronix_desk/public/js/solvronix_desk.js:1064
+msgid "Font Size"
+msgstr ""
+
+#. Description of the 'Lock Theme' (Check) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Force the administrator-selected theme and ignore user overrides."
+msgstr "Принудительно применять тему администратора и игнорировать выбор пользователей."
+
+#: solvronix_desk/public/js/solvronix_desk.js:924
+msgid "Full width disabled"
+msgstr "Полная ширина выключена"
+
+#: solvronix_desk/public/js/solvronix_desk.js:408
+#: solvronix_desk/public/js/solvronix_desk.js:1134
+msgid "General"
+msgstr ""
+
+#. Description of the 'Corner Radius' (Int) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Global corner roundness in pixels (0–24)."
+msgstr "Общее скругление углов в пикселях (0–24)."
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:73
+msgid "Good afternoon"
+msgstr "Добрый день"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:74
+msgid "Good evening"
+msgstr "Добрый вечер"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:72
+msgid "Good morning"
+msgstr "Доброе утро"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:176
+msgid "Green"
+msgstr ""
+
+#: solvronix_desk/public/js/progressive_forms.js:82
+#: solvronix_desk/public/js/progressive_forms.js:97
+msgid "Hide optional fields"
+msgstr "Скрыть необязательные поля"
+
+#: solvronix_desk/public/js/command_palette.js:177
+#: solvronix_desk/public/js/module_cards.js:90
+#: solvronix_desk/public/js/solvronix_desk.js:244
+#: solvronix_desk/public/js/solvronix_desk.js:560
+#: solvronix_desk/public/js/solvronix_desk.js:737
+msgid "Home"
+msgstr ""
+
+#. Option for the 'Sidebar Layout' (Select) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Icon Rail"
+msgstr "Панель значков"
+
+#. Label of the icon_rail_active_color (Color) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Icon Rail Active Color"
+msgstr "Цвет активного значка панели"
+
+#. Label of the icon_rail_background (Color) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Icon Rail Background"
+msgstr "Фон панели значков"
+
+#. Label of the icon_rail_width (Int) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Icon Rail Width"
+msgstr "Ширина панели значков"
+
+#. Description of the 'Sidebar Layout' (Select) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Icon Rail shows a slim app-icon column beside the workspace list, with each workspace's own items shown when its icon is selected. Tree reverts to Frappe's classic single-column sidebar."
+msgstr "«Панель значков» показывает узкую колонку значков приложений рядом со списком рабочих пространств; при выборе значка отображаются элементы соответствующего пространства. «Дерево» возвращает классическую одноколоночную боковую панель Frappe."
+
+#. Description of the 'Icon Rail Width' (Int) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Icon rail width in pixels (60–120)."
+msgstr "Ширина панели значков в пикселях (60–120)."
+
+#: solvronix_desk/public/js/solvronix_desk.js:859
+msgid "Installed Apps"
+msgstr ""
+
+#: solvronix_desk/api.py:166
+msgid "Invalid language code: {0}"
+msgstr "Недопустимый код языка: {0}"
+
+#: solvronix_desk/theme_engine.py:361
+msgid "Invalid theme configuration"
+msgstr "Недопустимая конфигурация темы"
+
+#: solvronix_desk/public/js/module_cards.js:48
+#: solvronix_desk/public/js/module_cards.js:49
+#: solvronix_desk/public/js/module_cards.js:50
+msgid "Invoices, ledger & balance sheets"
+msgstr "Счета, главная книга и балансы"
+
+#: solvronix_desk/public/js/module_cards.js:74
+msgid "Issues, SLA & customer portal"
+msgstr "Обращения, SLA и клиентский портал"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:223
+msgid "Items waiting on action"
+msgstr "Элементы, ожидающие действия"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:283
+msgid "Jump to Tasks, ToDos and reports"
+msgstr "Переход к задачам, делам и отчётам"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:371
+msgid "Jump to any workspace"
+msgstr "Перейдите в любое рабочее пространство"
+
+#: solvronix_desk/public/js/module_cards.js:273
+#: solvronix_desk/solvronix_desk/page/all_apps/all_apps.js:45
+msgid "Jump to any workspace from here"
+msgstr "Отсюда можно перейти в любое рабочее пространство"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:282
+msgid "Keep a quick note on your dashboard"
+msgstr "Держите быструю заметку на панели"
+
+#: solvronix_desk/public/js/solvronix_desk.js:970
+msgid "Language updated. Reloading…"
+msgstr "Язык изменён. Перезагрузка…"
+
+#. Option for the 'Base Font Size' (Select) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Large"
+msgstr ""
+
+#: solvronix_desk/public/js/solvronix_desk.js:1068
+msgid "Larger"
+msgstr "Крупнее"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:747
+msgid "Layout saved"
+msgstr "Раскладка сохранена"
+
+#: solvronix_desk/public/js/module_cards.js:56
+msgid "Leads, deals & opportunities"
+msgstr "Лиды, сделки и возможности"
+
+#. Option for the 'Default Theme Mode' (Select) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Light"
+msgstr ""
+
+#: solvronix_desk/public/js/dark_mode.js:164
+#: solvronix_desk/public/js/solvronix_desk.js:1049
+msgctxt "Theme mode"
+msgid "Light"
+msgstr "Светлая"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:172
+msgctxt "Widget field"
+msgid "Link"
+msgstr "Ссылка"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:179
+msgid "Live preview"
+msgstr "Предпросмотр"
+
+#: solvronix_desk/public/js/module_cards.js:172
+msgid "Loading"
+msgstr ""
+
+#: solvronix_desk/public/js/notification_center.js:225
+msgid "Loading events…"
+msgstr "Загрузка событий…"
+
+#: solvronix_desk/public/js/notification_center.js:151
+msgid "Loading notifications…"
+msgstr "Загрузка уведомлений…"
+
+#: solvronix_desk/public/js/solvronix_desk.js:1010
+msgid "Loading…"
+msgstr "Загрузка…"
+
+#: solvronix_desk/public/js/module_cards.js:78
+msgid "Loan management & repayments"
+msgstr "Управление займами и погашения"
+
+#. Label of the theme_lock (Check) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Lock Theme"
+msgstr "Заблокировать тему"
+
+#. Label of the logo (Attach Image) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Logo"
+msgstr ""
+
+#: solvronix_desk/public/js/solvronix_desk.js:821
+msgid "Logout"
+msgstr ""
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:134
+msgid "Make it yours"
+msgstr "Настройте под себя"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:250
+msgid "Make narrower"
+msgstr "Сделать уже"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:252
+msgid "Make wider"
+msgstr "Сделать шире"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:250
+msgid "Make widget narrower"
+msgstr "Сделать виджет уже"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:252
+msgid "Make widget wider"
+msgstr "Сделать виджет шире"
+
+#: solvronix_desk/public/js/notification_center.js:73
+msgid "Mark all read"
+msgstr "Прочитать все"
+
+#: solvronix_desk/public/js/notification_center.js:201
+msgid "Mark as read"
+msgstr "Отметить как прочитанное"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:174
+msgid "Medium"
+msgstr ""
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:253
+msgid "Move backward"
+msgstr "Переместить назад"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:259
+msgid "Move forward"
+msgstr "Переместить вперёд"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:415
+msgid "My ToDos"
+msgstr "Мои дела"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:170
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:323
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:669
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:693
+msgid "My widget"
+msgstr "Мой виджет"
+
+#. Label of the navbar_background (Color) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Navbar Background"
+msgstr "Фон верхней панели"
+
+#: solvronix_desk/public/js/command_palette.js:125
+msgid "Navigate"
+msgstr "Навигация"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:222
+msgid "Needs Attention"
+msgstr "Требует внимания"
+
+#: solvronix_desk/public/js/command_palette.js:175
+msgid "New Customer"
+msgstr "Новый клиент"
+
+#: solvronix_desk/public/js/command_palette.js:174
+msgid "New Purchase Order"
+msgstr "Новый заказ на покупку"
+
+#: solvronix_desk/public/js/command_palette.js:173
+msgid "New Sales Invoice"
+msgstr ""
+
+#: solvronix_desk/public/js/command_palette.js:228
+msgid "New {0}"
+msgstr ""
+
+#: solvronix_desk/public/js/module_cards.js:311
+#: solvronix_desk/solvronix_desk/page/all_apps/all_apps.js:67
+msgid "No apps match your search."
+msgstr "Нет приложений по вашему запросу."
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:914
+msgid "No create permissions found."
+msgstr "Нет прав на создание документов."
+
+#: solvronix_desk/public/js/solvronix_desk.js:652
+msgid "No languages found"
+msgstr "Языки не найдены"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:876
+msgid "No recent documents yet. Open a record and it will appear here."
+msgstr "Недавних документов пока нет. Откройте запись — и она появится здесь."
+
+#: solvronix_desk/public/js/command_palette.js:236
+#: solvronix_desk/public/js/solvronix_desk.js:1226
+msgid "No results for \"{0}\""
+msgstr "Ничего не найдено по запросу «{0}»"
+
+#: solvronix_desk/public/js/command_palette.js:289
+msgid "No results found"
+msgstr ""
+
+#: solvronix_desk/public/js/notification_center.js:253
+msgid "No upcoming events this week"
+msgstr "На этой неделе событий нет"
+
+#: solvronix_desk/public/js/module_cards.js:303
+#: solvronix_desk/public/js/solvronix_desk.js:1127
+#: solvronix_desk/solvronix_desk/page/all_apps/all_apps.js:61
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:940
+msgid "No workspaces found."
+msgstr "Рабочие пространства не найдены."
+
+#. Option for the 'Card Shadow' (Select) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "None"
+msgstr ""
+
+#: solvronix_desk/api.py:164 solvronix_desk/api.py:183
+#: solvronix_desk/theme_api.py:18
+msgid "Not permitted"
+msgstr ""
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:168
+msgid "Note"
+msgstr ""
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:1047
+msgid "Nothing needs your attention right now."
+msgstr "Сейчас ничего не требует вашего внимания."
+
+#: solvronix_desk/public/js/notification_center.js:66
+msgid "Notification Center"
+msgstr "Центр уведомлений"
+
+#: solvronix_desk/public/js/notification_center.js:36
+#: solvronix_desk/public/js/notification_center.js:71
+#: solvronix_desk/public/js/notification_center.js:84
+#: solvronix_desk/public/js/solvronix_desk.js:563
+msgid "Notifications"
+msgstr ""
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:168
+msgctxt "Widget type"
+msgid "Number"
+msgstr "Число"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:294
+msgid "One thing at a time."
+msgstr "Одно дело за раз."
+
+#: solvronix_desk/public/js/command_palette.js:126
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:311
+msgctxt "Action"
+msgid "Open"
+msgstr "Открыть"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:397
+msgid "Open Orders"
+msgstr ""
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:406
+msgid "Open Tasks"
+msgstr "Открытые задачи"
+
+#: solvronix_desk/public/js/command_palette.js:69
+msgid "Open list"
+msgstr "Открыть список"
+
+#: solvronix_desk/public/js/command_palette.js:69
+msgid "Open list · Ctrl+N to create"
+msgstr "Открыть список · Ctrl+N — создать"
+
+#. Description of the 'Card Background' (Color) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Optional override for light mode cards and forms."
+msgstr "Необязательная замена для карточек и форм в светлом режиме."
+
+#. Description of the 'Text Color' (Color) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Optional override for light mode primary text."
+msgstr "Необязательная замена основного текста в светлом режиме."
+
+#. Description of the 'Page Background' (Color) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Optional override for light mode."
+msgstr "Необязательная замена для светлого режима."
+
+#. Description of the 'Sidebar Background' (Color) field in DocType 'Theme
+#. Settings'
+#. Description of the 'Navbar Background' (Color) field in DocType 'Theme
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Optional override. Leave empty for the automatic theme value."
+msgstr "Необязательно. Оставьте пустым, чтобы использовать автоматическое значение темы."
+
+#. Description of the 'Icon Rail Background' (Color) field in DocType 'Theme
+#. Settings'
+#. Description of the 'Icon Rail Active Color' (Color) field in DocType 'Theme
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Optional override. Leave empty to reuse the site's accent color."
+msgstr "Необязательно. Оставьте пустым, чтобы использовать акцентный цвет сайта."
+
+#. Label of the page_background (Color) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Page Background"
+msgstr "Фон страницы"
+
+#: solvronix_desk/public/js/module_cards.js:80
+msgid "Patients, appointments & billing"
+msgstr "Пациенты, приёмы и счета"
+
+#. Label of the section_personalization (Section Break) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Personalization Defaults"
+msgstr "Персонализация по умолчанию"
+
+#: solvronix_desk/public/js/module_cards.js:173
+msgid "Please wait"
+msgstr "Пожалуйста, подождите"
+
+#. Label of the preset_name (Data) field in DocType 'Theme Preset'
+#: solvronix_desk/solvronix_desk/doctype/theme_preset/theme_preset.json
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.js:81
+msgid "Preset Name"
+msgstr "Название пресета"
+
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.js:96
+msgid "Preset added — click Save to keep it"
+msgstr "Пресет добавлен — нажмите «Сохранить», чтобы оставить его"
+
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.js:121
+msgid "Preset applied — click Save to update"
+msgstr "Пресет применён — нажмите «Сохранить», чтобы обновить"
+
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.js:162
+msgid "Preview Theme"
+msgstr "Предпросмотр темы"
+
+#. Label of the theme_studio_config (Code) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Published Theme Configuration"
+msgstr "Опубликованная конфигурация темы"
+
+#: solvronix_desk/public/js/module_cards.js:58
+#: solvronix_desk/public/js/module_cards.js:59
+msgid "Purchase orders & suppliers"
+msgstr "Заказы на покупку и поставщики"
+
+#: solvronix_desk/public/js/module_cards.js:72
+msgid "Quality inspections & feedback"
+msgstr "Контроль качества и отзывы"
+
+#: solvronix_desk/public/js/command_palette.js:182
+msgid "Quick Actions"
+msgstr "Быстрые действия"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:212
+msgid "Quick Create"
+msgstr "Быстрое создание"
+
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.js:57
+msgid "Quick Presets"
+msgstr "Быстрые пресеты"
+
+#: solvronix_desk/public/js/module_cards.js:54
+#: solvronix_desk/public/js/module_cards.js:55
+msgid "Quotations, orders & customers"
+msgstr "Предложения, заказы и клиенты"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:202
+msgid "Recent Documents"
+msgstr "Недавние документы"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:203
+msgid "Records you opened lately"
+msgstr "Записи, которые вы недавно открывали"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:249
+msgid "Remove widget"
+msgstr "Удалить виджет"
+
+#: solvronix_desk/public/js/command_palette.js:56
+msgid "Report"
+msgstr ""
+
+#: solvronix_desk/public/js/command_palette.js:219
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:301
+msgid "Reports"
+msgstr ""
+
+#: solvronix_desk/public/js/command_palette.js:181
+msgid "Reports: {0} · DocTypes: {1}"
+msgstr "Отчётов: {0} · типов документов: {1}"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:105
+msgid "Reset"
+msgstr ""
+
+#: solvronix_desk/public/js/solvronix_desk.js:816
+msgid "Reset Desktop Layout"
+msgstr "Сбросить раскладку рабочего стола"
+
+#: solvronix_desk/public/js/solvronix_desk.js:1067
+msgid "Reset to default"
+msgstr ""
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:495
+msgid "Reset your Smart Home widget order?"
+msgstr "Сбросить порядок виджетов на главном экране?"
+
+#: solvronix_desk/public/js/solvronix_desk.js:928
+msgid "Reset your desktop layout to default?"
+msgstr "Сбросить раскладку рабочего стола к значениям по умолчанию?"
+
+#: solvronix_desk/public/js/command_palette.js:240
+msgid "Results: {0}"
+msgstr "Найдено: {0}"
+
+#: solvronix_desk/public/js/module_cards.js:66
+msgid "Salary slips & payroll runs"
+msgstr "Расчётные листки и начисление зарплаты"
+
+#: solvronix_desk/public/js/module_cards.js:51
+msgid "Sales invoices & payments"
+msgstr "Счета на продажу и платежи"
+
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.js:50
+msgid "Save"
+msgstr ""
+
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.js:99
+msgid "Save Current Colors as Preset"
+msgstr "Сохранить текущие цвета как пресет"
+
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.js:43
+msgid "Save current colors as a preset"
+msgstr "Сохранить текущие цвета как пресет"
+
+#. Label of the section_presets (Section Break) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Saved Presets"
+msgstr "Сохранённые пресеты"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:282
+msgid "Scratch Pad"
+msgstr "Черновик"
+
+#: solvronix_desk/public/js/solvronix_desk.js:713
+msgid "Search (Ctrl+K)"
+msgstr "Поиск (Ctrl+K)"
+
+#: solvronix_desk/public/js/module_cards.js:276
+#: solvronix_desk/solvronix_desk/page/all_apps/all_apps.js:48
+msgid "Search apps…"
+msgstr "Поиск приложений…"
+
+#: solvronix_desk/public/js/solvronix_desk.js:623
+msgid "Search language…"
+msgstr "Поиск языка…"
+
+#: solvronix_desk/public/js/command_palette.js:119
+msgid "Search reports, doctypes, workspaces..."
+msgstr "Поиск отчётов, типов документов, рабочих пространств..."
+
+#: solvronix_desk/public/js/solvronix_desk.js:1007
+msgid "Search workspaces & options…"
+msgstr "Поиск рабочих пространств и настроек…"
+
+#: solvronix_desk/public/js/solvronix_desk.js:424
+msgid "Search workspaces…"
+msgstr "Поиск рабочих пространств…"
+
+#: solvronix_desk/public/js/solvronix_desk.js:715
+msgid "Search..."
+msgstr ""
+
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.js:77
+msgid "Set brand and accent colors first"
+msgstr "Сначала задайте фирменный и акцентный цвета"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:169
+msgid "Shortcut"
+msgstr "Ярлык"
+
+#: solvronix_desk/public/js/progressive_forms.js:83
+#: solvronix_desk/public/js/progressive_forms.js:98
+msgid "Show {0} optional fields"
+msgstr "Показать необязательные поля ({0})"
+
+#. Label of the sidebar_background (Color) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Sidebar Background"
+msgstr "Фон боковой панели"
+
+#. Label of the sidebar_layout (Select) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Sidebar Layout"
+msgstr "Вид боковой панели"
+
+#. Label of the sidebar_width (Int) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Sidebar Width"
+msgstr "Ширина боковой панели"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:163
+msgid "Simple builder"
+msgstr "Простой конструктор"
+
+#: solvronix_desk/public/js/theme_runtime.js:127
+msgid "Site default"
+msgstr "По умолчанию для сайта"
+
+#. Description of the 'Base Font Size' (Select) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Site-wide base font size. Each user can override with A− / A+ in All Options."
+msgstr "Базовый размер шрифта для всего сайта. Каждый пользователь может изменить его кнопками A− / A+ в «Все настройки»."
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:173
+msgid "Size"
+msgstr ""
+
+#. Option for the 'Base Font Size' (Select) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:173
+msgid "Small"
+msgstr ""
+
+#: solvronix_desk/public/js/solvronix_desk.js:1066
+msgid "Smaller"
+msgstr "Мельче"
+
+#. Option for the 'Card Shadow' (Select) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Soft"
+msgstr "Мягкая"
+
+#: solvronix_desk/public/js/module_cards.js:88
+msgid "Solvronix platform settings"
+msgstr "Настройки платформы Solvronix"
+
+#. Label of the dark_mode_default (Check) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Start in Dark Mode"
+msgstr "Запускать в тёмном режиме"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:213
+msgid "Start something new"
+msgstr "Начните что-то новое"
+
+#: solvronix_desk/public/js/module_cards.js:44
+#: solvronix_desk/public/js/module_cards.js:45
+#: solvronix_desk/public/js/module_cards.js:46
+msgid "Students, fees, exams & attendance"
+msgstr "Студенты, оплата, экзамены и посещаемость"
+
+#: solvronix_desk/public/js/solvronix_desk.js:415
+msgid "Switch Workspace (Ctrl+M)"
+msgstr "Сменить рабочее пространство (Ctrl+M)"
+
+#. Name of a role
+#: solvronix_desk/solvronix_desk/doctype/theme_preference/theme_preference.json
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "System Manager"
+msgstr ""
+
+#: solvronix_desk/public/js/module_cards.js:86
+msgid "System configuration & setup"
+msgstr "Конфигурация и настройка системы"
+
+#. Label of the tagline (Data) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Tagline (optional)"
+msgstr "Слоган (необязательно)"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:300
+msgid "Tasks"
+msgstr ""
+
+#: solvronix_desk/public/js/module_cards.js:70
+msgid "Tasks, timesheets & milestones"
+msgstr "Задачи, табели и этапы"
+
+#. Label of the text_color (Color) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Text Color"
+msgstr ""
+
+#: solvronix_desk/public/js/solvronix_desk.js:1047
+msgctxt "Appearance"
+msgid "Theme"
+msgstr "Тема"
+
+#. Label of the theme_assignments (Code) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Theme Assignments"
+msgstr "Назначения тем"
+
+#. Label of the theme_studio_draft (Code) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Theme Draft"
+msgstr "Черновик темы"
+
+#. Name of a DocType
+#: solvronix_desk/solvronix_desk/doctype/theme_preference/theme_preference.json
+msgid "Theme Preference"
+msgstr "Предпочтение темы"
+
+#. Name of a DocType
+#: solvronix_desk/solvronix_desk/doctype/theme_preset/theme_preset.json
+msgid "Theme Preset"
+msgstr "Пресет темы"
+
+#. Label of the theme_profile (Data) field in DocType 'Theme Preference'
+#: solvronix_desk/solvronix_desk/doctype/theme_preference/theme_preference.json
+msgid "Theme Profile"
+msgstr "Профиль темы"
+
+#. Label of the theme_profiles (Code) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Theme Profiles"
+msgstr "Профили тем"
+
+#. Label of the theme_schedule (Code) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Theme Schedule"
+msgstr "Расписание тем"
+
+#. Name of a DocType
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Theme Settings"
+msgstr "Настройки темы"
+
+#: solvronix_desk/public/js/command_palette.js:170
+msgid "Theme Studio"
+msgstr ""
+
+#. Label of the section_theme_engine (Section Break) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Theme Studio Engine"
+msgstr "Движок Theme Studio"
+
+#. Label of the studio_layout (Code) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Theme Studio Preview Layout"
+msgstr "Макет предпросмотра Theme Studio"
+
+#. Label of the theme_versions (Code) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Theme Version History"
+msgstr "История версий темы"
+
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.js:175
+msgid "Theme preview applied!"
+msgstr "Предпросмотр темы применён!"
+
+#: solvronix_desk/public/js/theme_runtime.js:124
+msgid "Theme profile"
+msgstr "Профиль темы"
+
+#: solvronix_desk/public/js/theme_runtime.js:141
+msgid "Theme profile applied"
+msgstr "Профиль темы применён"
+
+#: solvronix_desk/solvronix_desk/doctype/theme_preference/theme_preference.py:24
+#: solvronix_desk/theme_api.py:29
+msgid "Theme profile not found"
+msgstr "Профиль темы не найден"
+
+#: solvronix_desk/solvronix_desk/doctype/theme_preference/theme_preference.py:19
+#: solvronix_desk/theme_api.py:20 solvronix_desk/theme_api.py:23
+msgid "Theme selection is locked by an administrator"
+msgstr "Выбор темы заблокирован администратором"
+
+#: solvronix_desk/public/js/solvronix_desk.js:1494
+msgid "Theme updated"
+msgstr "Тема обновлена"
+
+#: solvronix_desk/public/js/dark_mode.js:206
+msgid "Theme: Auto (follows OS) — click for Light"
+msgstr "Тема: авто (как в системе) — нажмите для светлой"
+
+#: solvronix_desk/public/js/dark_mode.js:205
+msgid "Theme: Dark — click for Auto"
+msgstr "Тема: тёмная — нажмите для авто"
+
+#: solvronix_desk/public/js/dark_mode.js:204
+msgid "Theme: Light — click for Dark"
+msgstr "Тема: светлая — нажмите для тёмной"
+
+#: solvronix_desk/public/js/dark_mode.js:166
+msgid "Theme: {0}"
+msgstr "Тема: {0}"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:170
+msgctxt "Widget field"
+msgid "Title"
+msgstr "Заголовок"
+
+#: solvronix_desk/public/js/solvronix_desk.js:561
+#: solvronix_desk/public/js/solvronix_desk.js:738
+msgid "To-Do"
+msgstr "Дела"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:301
+msgid "ToDos"
+msgstr "Дела"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:281
+msgid "Today"
+msgstr ""
+
+#: solvronix_desk/public/js/solvronix_desk.js:590
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:16
+msgid "Today's View"
+msgstr "Мой день"
+
+#: solvronix_desk/public/js/solvronix_desk.js:811
+msgid "Toggle Full Width"
+msgstr ""
+
+#: solvronix_desk/public/js/solvronix_desk.js:807
+msgid "Toggle Theme"
+msgstr ""
+
+#: solvronix_desk/public/js/solvronix_desk.js:728
+msgid "Toggle dark/light mode"
+msgstr "Переключить тёмный/светлый режим"
+
+#: solvronix_desk/public/js/solvronix_desk.js:355
+msgid "Toggle sidebar"
+msgstr ""
+
+#: solvronix_desk/public/js/dark_mode.js:208
+msgid "Toggle theme"
+msgstr "Переключить тему"
+
+#. Option for the 'Sidebar Layout' (Select) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Tree"
+msgstr ""
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:298
+msgid "Type a quick note..."
+msgstr "Напишите короткую заметку..."
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:388
+msgid "Unpaid Invoices"
+msgstr "Неоплаченные счета"
+
+#. Description of the 'Administrator-only Preview' (Check) field in DocType
+#. 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Unpublished live previews remain visible only to System Managers."
+msgstr "Неопубликованный предпросмотр виден только менеджерам системы."
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:283
+msgid "Useful Links"
+msgstr "Полезные ссылки"
+
+#. Label of the user (Link) field in DocType 'Theme Preference'
+#: solvronix_desk/public/js/solvronix_desk.js:764
+#: solvronix_desk/solvronix_desk/doctype/theme_preference/theme_preference.json
+msgid "User"
+msgstr ""
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:374
+msgid "View All Workspaces"
+msgstr "Все рабочие пространства"
+
+#: solvronix_desk/public/js/notification_center.js:98
+msgid "View all notifications"
+msgstr "Все уведомления"
+
+#. Label of the section_visual_design (Section Break) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Visual Design"
+msgstr "Визуальный дизайн"
+
+#: solvronix_desk/public/js/command_palette.js:170
+msgid "Visual theme editor"
+msgstr "Визуальный редактор темы"
+
+#: solvronix_desk/theme_engine.py:439
+msgid "WCAG AA validation failed: {0}"
+msgstr "Проверка WCAG AA не пройдена: {0}"
+
+#: solvronix_desk/public/js/module_cards.js:61
+#: solvronix_desk/public/js/module_cards.js:62
+msgid "Warehouses, items & deliveries"
+msgstr "Склады, товары и отгрузки"
+
+#: solvronix_desk/public/js/module_cards.js:82
+msgid "Web pages, blog & store"
+msgstr "Веб-страницы, блог и магазин"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:174
+msgid "Wide"
+msgstr "Широкий"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:683
+msgid "Widget created"
+msgstr "Виджет создан"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:645
+msgid "Widget is already on your dashboard"
+msgstr "Виджет уже есть на панели"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:132
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:135
+msgid "Widget library"
+msgstr "Библиотека виджетов"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:167
+msgid "Widget type"
+msgstr "Тип виджета"
+
+#: solvronix_desk/public/js/module_cards.js:68
+msgid "Work orders & production planning"
+msgstr "Производственные заказы и планирование"
+
+#: solvronix_desk/public/js/command_palette.js:84
+#: solvronix_desk/public/js/command_palette.js:177
+msgid "Workspace"
+msgstr ""
+
+#: solvronix_desk/solvronix_desk/page/all_apps/all_apps.js:34
+msgid "Workspace data unavailable."
+msgstr "Данные рабочих пространств недоступны."
+
+#: solvronix_desk/public/js/command_palette.js:221
+#: solvronix_desk/public/js/solvronix_desk.js:417
+msgid "Workspaces"
+msgstr "Рабочие пространства"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:171
+msgid "Write something useful..."
+msgstr "Напишите что-нибудь полезное..."
+
+#: solvronix_desk/solvronix_desk/doctype/theme_preference/theme_preference.py:13
+msgid "You can only change your own theme preference"
+msgstr "Вы можете менять только своё предпочтение темы"
+
+#: solvronix_desk/public/js/notification_center.js:174
+msgid "You're all caught up!"
+msgstr "Всё прочитано!"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:371
+msgid "Your Apps"
+msgstr "Ваши приложения"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:93
+msgid "Your command centre"
+msgstr "Ваш центр управления"
+
+#. Description of the 'Brand Color' (Color) field in DocType 'Theme Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Your company’s main color — sets sidebar, navbar, and login page"
+msgstr "Основной цвет компании — задаёт боковую панель, верхнюю панель и страницу входа"
+
+#. Description of the 'Custom Presets' (Table) field in DocType 'Theme
+#. Settings'
+#: solvronix_desk/solvronix_desk/doctype/theme_settings/theme_settings.json
+msgid "Your own named color presets — they appear as swatches above alongside the built-in ones"
+msgstr "Ваши именованные цветовые пресеты — они отображаются как образцы выше рядом со встроенными"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:985
+msgid "{0} expense claims pending"
+msgstr "Авансовых отчётов на рассмотрении: {0}"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:979
+msgid "{0} leave applications awaiting approval"
+msgstr "Заявлений на отпуск ждут одобрения: {0}"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:967
+msgid "{0} overdue sales invoices"
+msgstr "Просроченных счетов на продажу: {0}"
+
+#: solvronix_desk/solvronix_desk/page/smart_home/smart_home.js:973
+msgid "{0} pending purchase orders"
+msgstr "Заказов на покупку в ожидании: {0}"
+

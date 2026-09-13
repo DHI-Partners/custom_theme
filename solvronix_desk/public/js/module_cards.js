@@ -34,61 +34,68 @@
     build: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.2 6.6a3.9 3.9 0 0 0 5.1 5.1l-7 7a2.6 2.6 0 0 1-3.7-3.7z"/><path d="m5.6 5.6 3.6 3.6"/><path d="M3.4 8.4 8.4 3.4l2.2 2.2-5 5z"/></svg>',
   };
 
-  var WS_CONFIG = {
-    /* Edvronix */
-    "edvronix app":         { color: "#F97316", icon: ICONS.education, desc: "Students, fees, exams & attendance" },
-    "edvronix":             { color: "#F97316", icon: ICONS.education, desc: "Students, fees, exams & attendance" },
-    "education":            { color: "#F97316", icon: ICONS.education, desc: "Students, fees, exams & attendance" },
-    /* Accounts / Finance */
-    "accounts":             { color: "#F59E0B", icon: ICONS.money, desc: "Invoices, ledger & balance sheets" },
-    "accounting":           { color: "#F59E0B", icon: ICONS.money, desc: "Invoices, ledger & balance sheets" },
-    "finance":              { color: "#F59E0B", icon: ICONS.money, desc: "Invoices, ledger & balance sheets" },
-    "invoicing":            { color: "#F59E0B", icon: ICONS.receipt, desc: "Sales invoices & payments" },
-    "financial reports":    { color: "#3B82F6", icon: ICONS.report, desc: "Balance sheet, P&L & ledgers" },
-    /* Sales / Selling */
-    "selling":              { color: "#EF4444", icon: ICONS.trend, desc: "Quotations, orders & customers" },
-    "sales":                { color: "#EF4444", icon: ICONS.trend, desc: "Quotations, orders & customers" },
-    "crm":                  { color: "#06B6D4", icon: ICONS.crm, desc: "Leads, deals & opportunities" },
-    /* Buying / Purchase */
-    "buying":               { color: "#F59E0B", icon: ICONS.cart, desc: "Purchase orders & suppliers" },
-    "purchase":             { color: "#F59E0B", icon: ICONS.cart, desc: "Purchase orders & suppliers" },
-    /* Stock / Inventory */
-    "stock":                { color: "#3B82F6", icon: ICONS.box, desc: "Warehouses, items & deliveries" },
-    "inventory":            { color: "#3B82F6", icon: ICONS.box, desc: "Warehouses, items & deliveries" },
-    /* HR / Payroll */
-    "hr":                   { color: "#8B5CF6", icon: ICONS.users, desc: "Employees, attendance & leave" },
-    "human resources":      { color: "#8B5CF6", icon: ICONS.users, desc: "Employees, attendance & leave" },
-    "payroll":              { color: "#8B5CF6", icon: ICONS.payroll, desc: "Salary slips & payroll runs" },
-    /* Manufacturing */
-    "manufacturing":        { color: "#10B981", icon: ICONS.factory, desc: "Work orders & production planning" },
-    /* Projects */
-    "projects":             { color: "#3B82F6", icon: ICONS.clipboard, desc: "Tasks, timesheets & milestones" },
-    /* Quality */
-    "quality":              { color: "#06B6D4", icon: ICONS.quality, desc: "Quality inspections & feedback" },
-    /* Support */
-    "support":              { color: "#06B6D4", icon: ICONS.support, desc: "Issues, SLA & customer portal" },
-    /* Assets */
-    "assets":               { color: "#10B981", icon: ICONS.assets, desc: "Fixed assets & depreciation" },
-    /* Loans */
-    "loans":                { color: "#F59E0B", icon: ICONS.bank, desc: "Loan management & repayments" },
-    /* Healthcare */
-    "healthcare":           { color: "#EF4444", icon: ICONS.health, desc: "Patients, appointments & billing" },
-    /* Website */
-    "website":              { color: "#F97316", icon: ICONS.globe, desc: "Web pages, blog & store" },
-    /* Developer / Build */
-    "build":                { color: "#6366F1", icon: ICONS.build, desc: "Doctypes, scripts & customisation" },
-    /* Settings */
-    "settings":             { color: "#6B7280", icon: ICONS.settings, desc: "System configuration & setup" },
-    /* Solvronix */
-    "solvronix":            { color: "#F97316", icon: ICONS.spark, desc: "Solvronix platform settings" },
-    /* Home — not shown in the grid itself */
-    "home":                 { color: "#6B7280", icon: ICONS.home, desc: "Home" },
-  };
+  /* Built on first lookup rather than at load time: __() needs the boot
+     translation messages, which are not available while app_include_js
+     scripts are first evaluated. */
+  var WS_CONFIG = null;
+  function buildWsConfig() {
+    return {
+      /* Edvronix */
+      "edvronix app":         { color: "#F97316", icon: ICONS.education, desc: __("Students, fees, exams & attendance") },
+      "edvronix":             { color: "#F97316", icon: ICONS.education, desc: __("Students, fees, exams & attendance") },
+      "education":            { color: "#F97316", icon: ICONS.education, desc: __("Students, fees, exams & attendance") },
+      /* Accounts / Finance */
+      "accounts":             { color: "#F59E0B", icon: ICONS.money, desc: __("Invoices, ledger & balance sheets") },
+      "accounting":           { color: "#F59E0B", icon: ICONS.money, desc: __("Invoices, ledger & balance sheets") },
+      "finance":              { color: "#F59E0B", icon: ICONS.money, desc: __("Invoices, ledger & balance sheets") },
+      "invoicing":            { color: "#F59E0B", icon: ICONS.receipt, desc: __("Sales invoices & payments") },
+      "financial reports":    { color: "#3B82F6", icon: ICONS.report, desc: __("Balance sheet, P&L & ledgers") },
+      /* Sales / Selling */
+      "selling":              { color: "#EF4444", icon: ICONS.trend, desc: __("Quotations, orders & customers") },
+      "sales":                { color: "#EF4444", icon: ICONS.trend, desc: __("Quotations, orders & customers") },
+      "crm":                  { color: "#06B6D4", icon: ICONS.crm, desc: __("Leads, deals & opportunities") },
+      /* Buying / Purchase */
+      "buying":               { color: "#F59E0B", icon: ICONS.cart, desc: __("Purchase orders & suppliers") },
+      "purchase":             { color: "#F59E0B", icon: ICONS.cart, desc: __("Purchase orders & suppliers") },
+      /* Stock / Inventory */
+      "stock":                { color: "#3B82F6", icon: ICONS.box, desc: __("Warehouses, items & deliveries") },
+      "inventory":            { color: "#3B82F6", icon: ICONS.box, desc: __("Warehouses, items & deliveries") },
+      /* HR / Payroll */
+      "hr":                   { color: "#8B5CF6", icon: ICONS.users, desc: __("Employees, attendance & leave") },
+      "human resources":      { color: "#8B5CF6", icon: ICONS.users, desc: __("Employees, attendance & leave") },
+      "payroll":              { color: "#8B5CF6", icon: ICONS.payroll, desc: __("Salary slips & payroll runs") },
+      /* Manufacturing */
+      "manufacturing":        { color: "#10B981", icon: ICONS.factory, desc: __("Work orders & production planning") },
+      /* Projects */
+      "projects":             { color: "#3B82F6", icon: ICONS.clipboard, desc: __("Tasks, timesheets & milestones") },
+      /* Quality */
+      "quality":              { color: "#06B6D4", icon: ICONS.quality, desc: __("Quality inspections & feedback") },
+      /* Support */
+      "support":              { color: "#06B6D4", icon: ICONS.support, desc: __("Issues, SLA & customer portal") },
+      /* Assets */
+      "assets":               { color: "#10B981", icon: ICONS.assets, desc: __("Fixed assets & depreciation") },
+      /* Loans */
+      "loans":                { color: "#F59E0B", icon: ICONS.bank, desc: __("Loan management & repayments") },
+      /* Healthcare */
+      "healthcare":           { color: "#EF4444", icon: ICONS.health, desc: __("Patients, appointments & billing") },
+      /* Website */
+      "website":              { color: "#F97316", icon: ICONS.globe, desc: __("Web pages, blog & store") },
+      /* Developer / Build */
+      "build":                { color: "#6366F1", icon: ICONS.build, desc: __("Doctypes, scripts & customisation") },
+      /* Settings */
+      "settings":             { color: "#6B7280", icon: ICONS.settings, desc: __("System configuration & setup") },
+      /* Solvronix */
+      "solvronix":            { color: "#F97316", icon: ICONS.spark, desc: __("Solvronix platform settings") },
+      /* Home — not shown in the grid itself */
+      "home":                 { color: "#6B7280", icon: ICONS.home, desc: __("Home") },
+    };
+  }
 
   /* Fallback colors cycling for unknown workspaces */
   var FALLBACK_COLORS = ["#EF4444","#F59E0B","#10B981","#3B82F6","#8B5CF6","#06B6D4","#F97316"];
 
   function wsConfig(title) {
+    if (!WS_CONFIG) WS_CONFIG = buildWsConfig();
     var key = (title || "").toLowerCase();
     if (WS_CONFIG[key]) return WS_CONFIG[key];
     /* Partial match */
@@ -162,8 +169,8 @@
       html += '<div class="st-ws-card st-skeleton">' +
               '<div class="st-ws-card-icon"></div>' +
               '<div class="st-ws-card-info">' +
-              '<div class="st-ws-card-name">Loading</div>' +
-              '<div class="st-ws-card-desc">Please wait</div>' +
+              '<div class="st-ws-card-name">' + __("Loading") + '</div>' +
+              '<div class="st-ws-card-desc">' + __("Please wait") + '</div>' +
               '</div></div>';
     }
     html += '</div>';
@@ -187,7 +194,7 @@
            ' tabindex="0">' +
            '<div class="st-ws-card-icon">' + icon + '</div>' +
            '<div class="st-ws-card-info">' +
-           '<div class="st-ws-card-name">' + frappe.utils.escape_html(title) + '</div>' +
+           '<div class="st-ws-card-name">' + frappe.utils.escape_html(__(title)) + '</div>' +
            (desc ? '<div class="st-ws-card-desc">' + frappe.utils.escape_html(desc) + '</div>' : '') +
            '</div>' +
            '</a>';
@@ -262,11 +269,11 @@
     /* Grid shell with skeleton loaders */
     grid.innerHTML =
       '<div class="st-ws-header">' +
-      '<div class="st-ws-title">All Apps</div>' +
-      '<div class="st-ws-subtitle">Jump to any workspace from here</div>' +
+      '<div class="st-ws-title">' + __("All Apps") + '</div>' +
+      '<div class="st-ws-subtitle">' + __("Jump to any workspace from here") + '</div>' +
       '</div>' +
       '<div class="st-ws-search-wrap">' +
-      '<input id="st-ws-search-input" class="st-ws-search" type="text" placeholder="Search apps…" autocomplete="off">' +
+      '<input id="st-ws-search-input" class="st-ws-search" type="text" placeholder="' + __("Search apps…") + '" autocomplete="off">' +
       '</div>' +
       buildSkeletons(8);
 
@@ -293,7 +300,7 @@
 
       if (!pages.length) {
         grid.insertAdjacentHTML("beforeend",
-          '<div class="st-ws-cards"><div class="st-ws-empty">No workspaces found.</div></div>');
+          '<div class="st-ws-cards"><div class="st-ws-empty">' + __("No workspaces found.") + '</div></div>');
         return;
       }
 
@@ -301,7 +308,7 @@
       for (var i = 0; i < pages.length; i++) {
         html += buildCard(pages[i], i);
       }
-      html += '<div id="st-ws-empty" class="st-ws-empty" style="display:none">No apps match your search.</div>';
+      html += '<div id="st-ws-empty" class="st-ws-empty" style="display:none">' + __("No apps match your search.") + '</div>';
       html += '</div>';
       grid.insertAdjacentHTML("beforeend", html);
 

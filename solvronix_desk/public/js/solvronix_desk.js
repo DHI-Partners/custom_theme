@@ -354,7 +354,7 @@
           '</div>' +
           '<button type="button" class="st-rail-collapse" title="' + esc(__("Toggle sidebar")) + '">' +
             '<span class="st-rail-collapse-icon">' + frappe.utils.icon(isCollapsed ? "chevron-right" : "chevron-left", "sm") + '</span>' +
-            '<span class="st-rail-label">' + esc(__("Collapse")) + '</span>' +
+            '<span class="st-rail-label">' + esc(__("Collapse", null, "Sidebar")) + '</span>' +
           '</button>' +
         '</nav>';
 
@@ -405,23 +405,23 @@
     /* Group by category */
     var categories = {};
     pages.forEach(function (p) {
-      var cat = p.category || "General";
+      var cat = p.category || __("General");
       if (!categories[cat]) categories[cat] = [];
       categories[cat].push(p);
     });
 
     /* Button */
     var $btn = $(
-      '<button id="st-module-switch-btn" title="Switch Workspace (Ctrl+M)">' +
+      '<button id="st-module-switch-btn" title="' + __("Switch Workspace (Ctrl+M)") + '">' +
         '<span class="st-ms-icon" style="margin-right:6px;display:flex;align-items:center;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg></span>' +
-        "<span>Workspaces</span>" +
+        "<span>" + __("Workspaces") + "</span>" +
         '<span class="st-chevron"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>' +
       "</button>"
     );
 
     /* Dropdown (appended to body to escape overflow:hidden) */
     var $dropdown = $('<div id="st-module-switcher-dropdown" style="display:none;position:fixed;z-index:1050;"></div>');
-    var $search = $('<input id="st-module-search" type="text" placeholder="Search workspaces…">');
+    var $search = $('<input id="st-module-search" type="text" placeholder="' + __("Search workspaces…") + '">');
     $dropdown.append($search);
 
     var currentItems = [];
@@ -557,10 +557,10 @@
 
     var $nav = $(
       '<div id="st-quick-nav">' +
-        '<a href="/app" title="' + frappe._("Home") + '"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 10.5 8.5-7 8.5 7V19a1.5 1.5 0 0 1-1.5 1.5h-14A1.5 1.5 0 0 1 3.5 19z"/><path d="M9.5 20.5v-6.5h5v6.5"/></svg></a>' +
-        '<a href="/desk/todo" title="' + frappe._("To-Do") + '"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5H7.5A1.5 1.5 0 0 0 6 6v13.5A1.5 1.5 0 0 0 7.5 21h9a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H15"/><rect x="9" y="2.5" width="6" height="4" rx="1.2"/><path d="m9.5 13.2 1.9 1.9 3.6-3.6"/></svg></a>' +
-        '<a href="/desk/activity" title="' + frappe._("Activity") + '"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.2 2"/></svg></a>' +
-        '<a href="/desk/notification-log" title="' + frappe._("Notifications") + '"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8.5a6 6 0 0 0-12 0c0 6.5-2.5 8.5-2.5 8.5h17S18 15 18 8.5"/><path d="M13.7 20.5a2 2 0 0 1-3.4 0"/></svg></a>' +
+        '<a href="/app" title="' + __("Home") + '"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 10.5 8.5-7 8.5 7V19a1.5 1.5 0 0 1-1.5 1.5h-14A1.5 1.5 0 0 1 3.5 19z"/><path d="M9.5 20.5v-6.5h5v6.5"/></svg></a>' +
+        '<a href="/desk/todo" title="' + __("To-Do") + '"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5H7.5A1.5 1.5 0 0 0 6 6v13.5A1.5 1.5 0 0 0 7.5 21h9a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H15"/><rect x="9" y="2.5" width="6" height="4" rx="1.2"/><path d="m9.5 13.2 1.9 1.9 3.6-3.6"/></svg></a>' +
+        '<a href="/desk/activity" title="' + __("Activity") + '"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.2 2"/></svg></a>' +
+        '<a href="/desk/notification-log" title="' + __("Notifications") + '"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8.5a6 6 0 0 0-12 0c0 6.5-2.5 8.5-2.5 8.5h17S18 15 18 8.5"/><path d="M13.7 20.5a2 2 0 0 1-3.4 0"/></svg></a>' +
       "</div>"
     );
 
@@ -587,7 +587,7 @@
       '<div class="st-tb-left">' +
         '<span id="st-tb-clock"></span>' +
         '<span class="st-tb-sep"></span>' +
-        '<a id="st-sh-link" href="/desk/smart-home" title="Today\'s View"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M8 3v4M16 3v4M3 10.5h18"/></svg> Today\'s View</a>' +
+        '<a id="st-sh-link" href="/desk/smart-home" title="' + __("Today's View") + '"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M8 3v4M16 3v4M3 10.5h18"/></svg> ' + __("Today's View") + '</a>' +
       "</div>"
     );
 
@@ -611,7 +611,7 @@
     var currentLabel = currentLang.toUpperCase();
     var $langWrap = $('<div id="st-lang-wrapper"></div>');
     var $langBtn = $(
-      '<button id="st-lang-btn" title="' + frappe._("Change language") + '">' +
+      '<button id="st-lang-btn" title="' + __("Change language") + '">' +
         '<span class="st-lang-globe"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14.5 14.5 0 0 1 0 18a14.5 14.5 0 0 1 0-18"/></svg></span>' +
         '<span id="st-lang-label">' + currentLabel + "</span>" +
         '<span class="st-lang-chevron"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>' +
@@ -620,7 +620,7 @@
 
     /* Language dropdown */
     var $langDrop = $('<div id="st-lang-dropdown"></div>');
-    var $langSearch = $('<input id="st-lang-search" type="text" placeholder="Search language…">');
+    var $langSearch = $('<input id="st-lang-search" type="text" placeholder="' + __("Search language…") + '">');
     $langDrop.append($langSearch);
     $("body").append($langDrop);
 
@@ -649,7 +649,7 @@
         $langDrop.append($item);
       });
       if (!shown.length) {
-        $langDrop.append('<div style="padding:16px;text-align:center;color:#aaa;font-size:12px;">No languages found</div>');
+        $langDrop.append('<div style="padding:16px;text-align:center;color:#aaa;font-size:12px;">' + __("No languages found") + '</div>');
       }
     }
 
@@ -710,9 +710,9 @@
 
     /* Search bar — opens the command palette */
     var $searchBar = $(
-      '<button id="st-tb-search" title="Search (Ctrl+K)">' +
+      '<button id="st-tb-search" title="' + __("Search (Ctrl+K)") + '">' +
         '<svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="5.5" cy="5.5" r="4" stroke="currentColor" stroke-width="1.4"/><path d="M8.5 8.5L11 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>' +
-        '<span class="st-tb-search-text">Search...</span>' +
+        '<span class="st-tb-search-text">' + __("Search...") + '</span>' +
         '<span class="st-tb-search-kbd">Ctrl K</span>' +
       '</button>'
     );
@@ -725,7 +725,7 @@
     $right.append('<span class="st-tb-sep"></span>');
 
     /* Dark/Light toggle — icon filled in by dark_mode.js stUpdateToggleIcon() */
-    var $darkToggle = $('<button id="st-dark-toggle" class="st-tb-btn st-tb-qn-btn" title="Toggle dark/light mode"></button>');
+    var $darkToggle = $('<button id="st-dark-toggle" class="st-tb-btn st-tb-qn-btn" title="' + __("Toggle dark/light mode") + '"></button>');
     $darkToggle.on("click", function () {
       if (window.stToggleDark) window.stToggleDark();
     });
@@ -734,8 +734,8 @@
     /* Quick-nav shortcut buttons: Home + To-Do */
     var $qnav = $('<div id="st-tb-quicknav"></div>');
     [
-      { icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 10.5 8.5-7 8.5 7V19a1.5 1.5 0 0 1-1.5 1.5h-14A1.5 1.5 0 0 1 3.5 19z"/><path d="M9.5 20.5v-6.5h5v6.5"/></svg>', title: frappe._("Home"),  route: "smart-home" },
-      { icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5H7.5A1.5 1.5 0 0 0 6 6v13.5A1.5 1.5 0 0 0 7.5 21h9a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H15"/><rect x="9" y="2.5" width="6" height="4" rx="1.2"/><path d="m9.5 13.2 1.9 1.9 3.6-3.6"/></svg>', title: frappe._("To-Do"), route: "todo" },
+      { icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 10.5 8.5-7 8.5 7V19a1.5 1.5 0 0 1-1.5 1.5h-14A1.5 1.5 0 0 1 3.5 19z"/><path d="M9.5 20.5v-6.5h5v6.5"/></svg>', title: __("Home"),  route: "smart-home" },
+      { icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5H7.5A1.5 1.5 0 0 0 6 6v13.5A1.5 1.5 0 0 0 7.5 21h9a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H15"/><rect x="9" y="2.5" width="6" height="4" rx="1.2"/><path d="m9.5 13.2 1.9 1.9 3.6-3.6"/></svg>', title: __("To-Do"), route: "todo" },
     ].forEach(function (item) {
       var $btn = $('<button class="st-tb-qn-btn" title="' + item.title + '">' + item.icon + "</button>");
       $btn.on("click", function () { frappe.set_route(item.route); });
@@ -754,14 +754,14 @@
     var $opBtn = $(
       '<button id="st-options-btn">' +
         '<span class="st-options-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>' +
-        frappe._("All Options") +
+        __("All Options") +
       "</button>"
     );
     $opBtn.on("click", openOptionsPanel);
     $right.append($opBtn);
 
     /* User avatar button — replaces the sidebar bottom user section */
-    var fullName  = (frappe.session && frappe.session.user_fullname) || "User";
+    var fullName  = (frappe.session && frappe.session.user_fullname) || __("User");
     var userEmail = (frappe.session && frappe.session.user) || "";
     var initials  = fullName.split(" ").slice(0, 2)
                       .map(function (w) { return w.charAt(0); })
@@ -778,7 +778,7 @@
       : initials;
 
     var $userBtn = $(
-      '<button id="st-user-btn" title="' + frappe._("Account") + '">' +
+      '<button id="st-user-btn" title="' + __("Account") + '">' +
         '<span class="st-user-av' + (userImage ? ' st-user-av-img' : '') + '">' + avatarInner + '</span>' +
         '<svg class="st-user-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none">' +
           '<path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>' +
@@ -800,25 +800,25 @@
         '<div id="st-ud-apps"></div>' +
         '<button class="st-ud-item" data-action="edit-profile">' +
           '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 2.5L11.5 4.5M2 12H4L11 5L9 3L2 10V12Z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
-          'Edit Profile' +
+          __("Edit Profile") +
         '</button>' +
         '<button class="st-ud-item" data-action="toggle-theme">' +
           '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 1v1M7 12v1M1 7H2M12 7h1M2.9 2.9l.7.7M10.4 10.4l.7.7M2.9 11.1l.7-.7M10.4 3.6l.7-.7M9.5 7a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>' +
-          'Toggle Theme' +
+          __("Toggle Theme") +
         '</button>' +
         '<button class="st-ud-item" data-action="toggle-full-width" aria-pressed="false">' +
           '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 2H2v3M9 2h3v3M5 12H2V9M9 12h3V9M2 5l3-3M12 5L9 2M2 9l3 3M12 9l-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
-          '<span>Toggle Full Width</span>' +
+          '<span>' + __("Toggle Full Width") + '</span>' +
           '<span class="st-ud-state" aria-hidden="true">&#10003;</span>' +
         '</button>' +
         '<button class="st-ud-item" data-action="reset-layout">' +
           '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 7a5 5 0 1 1 1.1 3.1M2 11V7.5H5.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
-          'Reset Desktop Layout' +
+          __("Reset Desktop Layout") +
         '</button>' +
         '<div class="st-ud-divider"></div>' +
         '<button class="st-ud-item st-ud-logout" data-action="logout">' +
           '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 2H3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2M9 10l3-3-3-3M12 7H5.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
-          'Logout' +
+          __("Logout") +
         '</button>' +
       '</div>'
     );
@@ -856,7 +856,7 @@
       var appNames = Object.keys(versions);
       if (!appNames.length) return;
 
-      var html = '<div class="st-ud-section-label">Installed Apps</div>' +
+      var html = '<div class="st-ud-section-label">' + __("Installed Apps") + '</div>' +
                  '<div class="st-ud-apps-grid">';
       appNames.forEach(function (name) {
         var meta = APP_META[name] || {};
@@ -921,11 +921,11 @@
         toggleFullWidth();
         syncFullWidthItem();
         frappe.show_alert({
-          message: frappe._(isFullWidthEnabled() ? "Full width enabled" : "Full width disabled"),
+          message: __(isFullWidthEnabled() ? "Full width enabled" : "Full width disabled"),
           indicator: "green",
         }, 2);
       } else if (action === "reset-layout") {
-        frappe.confirm(frappe._("Reset your desktop layout to default?"), function () {
+        frappe.confirm(__("Reset your desktop layout to default?"), function () {
           frappe.call({
             method: "solvronix_desk.api.reset_workspace_for_user",
             callback: function () { window.location.reload(); },
@@ -967,7 +967,7 @@
       method: "solvronix_desk.api.set_user_language",
       args: { lang_code: code },
       callback: function () {
-        frappe.show_alert({ message: frappe._("Language updated. Reloading…"), indicator: "green" });
+        frappe.show_alert({ message: __("Language updated. Reloading…"), indicator: "green" });
         setTimeout(function () {
           // Frappe embeds boot (including lang+translations) directly in desk.html.
           // A normal reload can get a cached 304 response with the old boot.
@@ -984,7 +984,7 @@
         }, 900);
       },
       error: function () {
-        frappe.show_alert({ message: frappe._("Could not update language."), indicator: "red" });
+        frappe.show_alert({ message: __("Could not update language."), indicator: "red" });
       },
     });
   }
@@ -998,16 +998,16 @@
 
     var $head = $(
       '<div id="st-options-panel-head">' +
-        '<h3><span class="st-op-head-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg></span> ' + frappe._("All Options") + '</h3>' +
-        '<button id="st-options-panel-close" title="' + frappe._("Close") + '"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
+        '<h3><span class="st-op-head-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg></span> ' + __("All Options") + '</h3>' +
+        '<button id="st-options-panel-close" title="' + __("Close") + '"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
       "</div>"
     );
     var $searchWrap = $(
       '<div id="st-options-search-wrap">' +
-        '<input id="st-options-search" type="text" placeholder="' + frappe._("Search workspaces & options…") + '">' +
+        '<input id="st-options-search" type="text" placeholder="' + __("Search workspaces & options…") + '">' +
       "</div>"
     );
-    var $body = $('<div id="st-options-body"><p class="st-op-empty">' + frappe._("Loading…") + '</p></div>');
+    var $body = $('<div id="st-options-body"><p class="st-op-empty">' + __("Loading…") + '</p></div>');
 
     $panel.append($head).append($searchWrap).append(buildAppearanceSection()).append($body);
     $("body").append($overlay).append($panel);
@@ -1041,31 +1041,31 @@
   function buildAppearanceSection() {
     var $sec = $(
       '<div id="st-op-appearance">' +
-        '<div class="st-op-section-head"><span>' + frappe._("Appearance") + '</span></div>' +
+        '<div class="st-op-section-head"><span>' + __("Appearance") + '</span></div>' +
 
         '<div class="st-ap-row">' +
-          '<span class="st-ap-label">' + frappe._("Theme") + '</span>' +
+          '<span class="st-ap-label">' + __("Theme", null, "Appearance") + '</span>' +
           '<div class="st-ap-seg" data-group="theme">' +
-            '<button data-mode="light">' + frappe._("Light") + '</button>' +
-            '<button data-mode="dark">' + frappe._("Dark") + '</button>' +
-            '<button data-mode="auto">' + frappe._("Auto") + '</button>' +
+            '<button data-mode="light">' + __("Light", null, "Theme mode") + '</button>' +
+            '<button data-mode="dark">' + __("Dark", null, "Theme mode") + '</button>' +
+            '<button data-mode="auto">' + __("Auto", null, "Theme mode") + '</button>' +
           '</div>' +
         '</div>' +
 
         '<div class="st-ap-row">' +
-          '<span class="st-ap-label">' + frappe._("Density") + '</span>' +
+          '<span class="st-ap-label">' + __("Density") + '</span>' +
           '<div class="st-ap-seg" data-group="density">' +
-            '<button data-mode="comfortable">' + frappe._("Comfortable") + '</button>' +
-            '<button data-mode="compact">' + frappe._("Compact") + '</button>' +
+            '<button data-mode="comfortable">' + __("Comfortable") + '</button>' +
+            '<button data-mode="compact">' + __("Compact") + '</button>' +
           '</div>' +
         '</div>' +
 
         '<div class="st-ap-row">' +
-          '<span class="st-ap-label">' + frappe._("Font Size") + '</span>' +
+          '<span class="st-ap-label">' + __("Font Size") + '</span>' +
           '<div class="st-ap-seg" data-group="font">' +
-            '<button data-font="-1" title="' + frappe._("Smaller") + '">A&minus;</button>' +
-            '<button data-font="0" title="' + frappe._("Reset to default") + '">A</button>' +
-            '<button data-font="1" title="' + frappe._("Larger") + '">A+</button>' +
+            '<button data-font="-1" title="' + __("Smaller") + '">A&minus;</button>' +
+            '<button data-font="0" title="' + __("Reset to default") + '">A</button>' +
+            '<button data-font="1" title="' + __("Larger") + '">A+</button>' +
           '</div>' +
         '</div>' +
       '</div>'
@@ -1124,14 +1124,14 @@
     _optionsSections = [];
 
     if (!pages || !pages.length) {
-      $body.html('<p class="st-op-empty">' + frappe._("No workspaces found.") + '</p>');
+      $body.html('<p class="st-op-empty">' + __("No workspaces found.") + '</p>');
       return;
     }
 
     /* Group pages by category (parent_page or module) */
     var groups = {};
     pages.forEach(function (p) {
-      var grp = p.parent_page || p.module || p.app || frappe._("General");
+      var grp = p.parent_page || p.module || p.app || __("General");
       if (!groups[grp]) groups[grp] = [];
       groups[grp].push(p);
     });
@@ -1140,7 +1140,7 @@
     var roots = pages.filter(function (p) { return !p.parent_page; });
     if (roots.length && !groups["Workspaces"]) {
       groups = {};
-      groups[frappe._("All Workspaces")] = roots;
+      groups[__("All Workspaces")] = roots;
       pages.forEach(function (p) {
         if (p.parent_page) {
           if (!groups[p.parent_page]) groups[p.parent_page] = [];
@@ -1223,7 +1223,7 @@
     if (!anyVisibleAtAll) {
       $("#st-options-body").append(
         '<p id="st-op-no-results" class="st-op-empty">' +
-        frappe.utils.escape_html(frappe._('No results for "{0}"', [query])) +
+        frappe.utils.escape_html(__('No results for "{0}"', [query])) +
         '</p>'
       );
     }
@@ -1491,7 +1491,7 @@
       }
 
       /* 3. Subtle confirmation */
-      frappe.show_alert({ message: frappe._("Theme updated"), indicator: "green" }, 2);
+      frappe.show_alert({ message: __("Theme updated"), indicator: "green" }, 2);
     });
   });
 

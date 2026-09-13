@@ -4,6 +4,7 @@ import json
 import re
 
 import frappe
+from frappe import _
 from solvronix_desk import theme_engine, theme_store
 
 # ── 1. LEGACY COMPATIBILITY CONSTANTS / NORMALIZERS ───────────────────────────
@@ -160,9 +161,9 @@ def get_available_languages():
 def set_user_language(lang_code):
     """Persist the chosen language on the logged-in User record."""
     if not frappe.session.user or frappe.session.user == "Guest":
-        frappe.throw("Not permitted")
+        frappe.throw(_("Not permitted"))
     if not frappe.db.exists("Language", lang_code):
-        frappe.throw(f"Invalid language code: {lang_code}")
+        frappe.throw(_("Invalid language code: {0}").format(lang_code))
     frappe.db.set_value("User", frappe.session.user, "language", lang_code)
     frappe.cache.hdel("bootinfo", frappe.session.user)
     return {"ok": True}
@@ -179,7 +180,7 @@ def reset_workspace_for_user():
     """
     user = frappe.session.user
     if not user or user == "Guest":
-        frappe.throw("Not permitted")
+        frappe.throw(_("Not permitted"))
 
     user_workspaces = frappe.db.get_all(
         "Workspace",

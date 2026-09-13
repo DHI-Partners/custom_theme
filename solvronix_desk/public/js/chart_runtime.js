@@ -125,7 +125,7 @@
     var detail = {
       id: record && record.id,
       family: record && record.family,
-      message: String((error && error.message) || error || "Chart customization failed")
+      message: String((error && error.message) || error || __("Chart customization failed"))
     };
     try { window.dispatchEvent(new CustomEvent("st-chart-runtime-warning", { detail: detail })); }
     catch (ignored) {}

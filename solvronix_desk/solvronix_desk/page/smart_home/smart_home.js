@@ -165,11 +165,11 @@ solvronix_desk.SmartHome = class SmartHome {
 						'<button class="st-sh-builder-close" type="button" aria-label="' + __("Close") + '">&times;</button></div>' +
 					'<div class="st-sh-builder-layout"><form class="st-sh-builder-form">' +
 						'<label>' + __("Widget type") + '<select name="type">' +
-							'<option value="note">' + __("Note") + '</option><option value="number">' + __("Number") + '</option>' +
+							'<option value="note">' + __("Note") + '</option><option value="number">' + __("Number", null, "Widget type") + '</option>' +
 							'<option value="link">' + __("Shortcut") + '</option></select></label>' +
-						'<label>' + __("Title") + '<input name="title" maxlength="48" value="' + __("My widget") + '" required></label>' +
+						'<label>' + __("Title", null, "Widget field") + '<input name="title" maxlength="48" value="' + __("My widget") + '" required></label>' +
 						'<label class="st-sh-builder-value">' + __("Content") + '<textarea name="value" maxlength="240" rows="3" placeholder="' + __("Write something useful...") + '"></textarea></label>' +
-						'<label class="st-sh-builder-url" hidden>' + __("Link") + '<input name="url" type="url" placeholder="/desk/todo"></label>' +
+						'<label class="st-sh-builder-url" hidden>' + __("Link", null, "Widget field") + '<input name="url" type="url" placeholder="/desk/todo"></label>' +
 						'<div class="st-sh-builder-row"><label>' + __("Size") + '<select name="size"><option value="quarter">' + __("Small") + '</option>' +
 							'<option value="half" selected>' + __("Medium") + '</option><option value="wide">' + __("Wide") + '</option></select></label>' +
 							'<label>' + __("Colour") + '<select name="accent"><option value="blue">' + __("Blue") + '</option>' +
@@ -308,7 +308,7 @@ solvronix_desk.SmartHome = class SmartHome {
 		var body;
 		if (widget.type === "link") {
 			var href = this._safe_url(widget.url);
-			body = '<a class="st-sh-custom-link" href="' + href + '"><span>' + (value || __("Open")) + '</span><b>&rarr;</b></a>';
+			body = '<a class="st-sh-custom-link" href="' + href + '"><span>' + (value || __("Open", null, "Action")) + '</span><b>&rarr;</b></a>';
 		} else if (widget.type === "number") {
 			body = '<div class="st-sh-custom-number">' + (value || "0") + '</div>';
 		} else {

@@ -109,22 +109,22 @@
       var overlay = document.createElement("div");
       overlay.className = "st-cp-overlay";
       overlay.innerHTML = [
-        '<div class="st-cp-modal" role="dialog" aria-label="Command Palette">',
+        '<div class="st-cp-modal" role="dialog" aria-label="' + __("Command Palette") + '">',
         '  <div class="st-cp-search-row">',
         '    <svg class="st-cp-search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"',
         '      stroke="currentColor" stroke-width="2" stroke-linecap="round">',
         '      <circle cx="6.5" cy="6.5" r="4.5"/><line x1="10.5" y1="10.5" x2="14" y2="14"/>',
         '    </svg>',
         '    <input class="st-cp-input" type="text"',
-        '      placeholder="Search reports, doctypes, workspaces..."',
+        '      placeholder="' + __("Search reports, doctypes, workspaces...") + '"',
         '      autocomplete="off" autocorrect="off" spellcheck="false" />',
         '    <kbd class="st-cp-kbd-hint">Esc</kbd>',
         '  </div>',
         '  <div class="st-cp-results" id="st-cp-results"></div>',
         '  <div class="st-cp-footer">',
-        '    <span class="st-cp-hint"><kbd>↑</kbd><kbd>↓</kbd> Navigate</span>',
-        '    <span class="st-cp-hint"><kbd>↵</kbd> Open</span>',
-        '    <span class="st-cp-hint"><kbd>Esc</kbd> Close</span>',
+        '    <span class="st-cp-hint"><kbd>↑</kbd><kbd>↓</kbd> ' + __("Navigate") + '</span>',
+        '    <span class="st-cp-hint"><kbd>↵</kbd> ' + __("Open", null, "Action") + '</span>',
+        '    <span class="st-cp-hint"><kbd>Esc</kbd> ' + __("Close") + '</span>',
         '    <span class="st-cp-hint st-cp-count" id="st-cp-count"></span>',
         '  </div>',
         '</div>',
@@ -178,7 +178,7 @@
       ]);
       var rpt_count = Object.keys((frappe.boot && frappe.boot.allowed_reports) || {}).length;
       var dt_count  = ((frappe.boot && frappe.boot.user && frappe.boot.user.can_read) || []).length;
-      var count_str = rpt_count + " " + __("reports") + " · " + dt_count + " " + __("doctypes indexed");
+      var count_str = __("Reports: {0} · DocTypes: {1}", [rpt_count, dt_count]);
       this._render([{ section: __("Quick Actions"), items: quick }], null, count_str);
     },
 
@@ -237,7 +237,7 @@
         total = 0;
       }
 
-      this._render(sections, null, total > 0 ? total + " " + (total !== 1 ? __("results") : __("result")) : "");
+      this._render(sections, null, total > 0 ? __("Results: {0}", [total]) : "");
     },
 
     /* ── 5. RESULT RENDERING / KEYBOARD NAVIGATION ────────────────────────── */

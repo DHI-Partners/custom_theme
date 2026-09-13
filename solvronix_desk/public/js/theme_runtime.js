@@ -121,10 +121,10 @@
     var row = document.createElement("div");
     row.className = "st-op-appearance-row st-theme-profile-row";
     row.innerHTML =
-      '<span class="st-op-app-label">' + (frappe._ ? frappe._("Theme profile") : "Theme profile") + '</span>' +
+      '<span class="st-op-app-label">' + (frappe._ ? __("Theme profile") : "Theme profile") + '</span>' +
       '<select id="st-user-theme-profile" class="form-control input-xs"></select>';
     var select = row.querySelector("select");
-    select.innerHTML = '<option value="">' + (frappe._ ? frappe._("Site default") : "Site default") + "</option>" +
+    select.innerHTML = '<option value="">' + (frappe._ ? __("Site default") : "Site default") + "</option>" +
       profiles.map(function (profile) {
         return '<option value="' + frappe.utils.escape_html(profile.id) + '">' +
           frappe.utils.escape_html(profile.name) + "</option>";

@@ -161,9 +161,9 @@ function stToggleDark() {
   var order = ["light", "dark", "auto"];
   var next = order[(order.indexOf(stGetThemeMode()) + 1) % order.length];
   stSetThemeMode(next);
-  var labels = { light: "Light", dark: "Dark", auto: "Auto (follows your OS)" };
+  var labels = { light: __("Light", null, "Theme mode"), dark: __("Dark", null, "Theme mode"), auto: __("Auto (follows your OS)") };
   if (window.frappe && frappe.show_alert) {
-    frappe.show_alert({ message: frappe._("Theme: ") + labels[next], indicator: "blue" }, 2);
+    frappe.show_alert({ message: __("Theme: {0}", [labels[next]]), indicator: "blue" }, 2);
   }
 }
 
@@ -201,11 +201,11 @@ function stUpdateToggleIcon() {
   var mode = stGetAppliedThemeMode();
   btn.innerHTML = ST_THEME_ICONS[mode] || ST_THEME_ICONS.light;
   var titles = {
-    light: "Theme: Light — click for Dark",
-    dark:  "Theme: Dark — click for Auto",
-    auto:  "Theme: Auto (follows OS) — click for Light"
+    light: __("Theme: Light — click for Dark"),
+    dark:  __("Theme: Dark — click for Auto"),
+    auto:  __("Theme: Auto (follows OS) — click for Light")
   };
-  btn.title = titles[mode] || "Toggle theme";
+  btn.title = titles[mode] || __("Toggle theme");
 }
 
 /* ── 5. Inject toggle button into the toolbar ─────────────────── */

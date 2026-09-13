@@ -8,6 +8,7 @@ from copy import deepcopy
 from datetime import datetime
 
 import frappe
+from frappe import _
 
 from solvronix_desk import chart_config
 
@@ -357,7 +358,7 @@ def sanitize_config(raw, base=None, validate_contrast=True, strict_charts=False)
     """Normalize an untrusted partial config against a complete safe baseline."""
     raw = parse_json(raw, {}) if isinstance(raw, str) else (raw or {})
     if not isinstance(raw, dict):
-        frappe.throw("Invalid theme configuration")
+        frappe.throw(_("Invalid theme configuration"))
     result = deepcopy(base or DEFAULT_CONFIG)
 
     for field in COLOR_FIELDS:
@@ -435,7 +436,7 @@ def sanitize_config(raw, base=None, validate_contrast=True, strict_charts=False)
     if result["enforce_wcag"] and validate_contrast:
         failures = wcag_failures(result)
         if failures:
-            frappe.throw("WCAG AA validation failed: " + ", ".join(failures))
+            frappe.throw(_("WCAG AA validation failed: {0}").format(", ".join(failures)))
     return result
 
 

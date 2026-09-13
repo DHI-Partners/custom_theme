@@ -33,7 +33,7 @@
     if (!$tbRight.length) return;
 
     $bell = $(
-      '<button id="st-notif-bell" title="Notifications" aria-label="Notifications">' +
+      '<button id="st-notif-bell" title="' + __("Notifications") + '" aria-label="' + __("Notifications") + '">' +
         '<span class="st-notif-bell-icon"><svg class="st-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8.5a6 6 0 0 0-12 0c0 6.5-2.5 8.5-2.5 8.5h17S18 15 18 8.5"/><path d="M13.7 20.5a2 2 0 0 1-3.4 0"/></svg></span>' +
         '<span class="st-notif-badge st-hidden">0</span>' +
       '</button>'
@@ -63,15 +63,15 @@
     $overlay = $('<div id="st-notif-overlay"></div>');
     $overlay.on("click", closePanel);
 
-    $panel = $('<div id="st-notif-panel" role="dialog" aria-label="Notification Center"></div>');
+    $panel = $('<div id="st-notif-panel" role="dialog" aria-label="' + __("Notification Center") + '"></div>');
 
     /* Header */
     var $head = $(
       '<div class="st-notif-head">' +
-        '<span class="st-notif-title"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8.5a6 6 0 0 0-12 0c0 6.5-2.5 8.5-2.5 8.5h17S18 15 18 8.5"/><path d="M13.7 20.5a2 2 0 0 1-3.4 0"/></svg> Notifications</span>' +
+        '<span class="st-notif-title"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8.5a6 6 0 0 0-12 0c0 6.5-2.5 8.5-2.5 8.5h17S18 15 18 8.5"/><path d="M13.7 20.5a2 2 0 0 1-3.4 0"/></svg> ' + __("Notifications") + '</span>' +
         '<div class="st-notif-head-actions">' +
-          '<button class="st-notif-action-btn" id="st-notif-mark-all"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Mark all read</button>' +
-          '<button class="st-notif-action-btn st-notif-close-btn" id="st-notif-close" title="Close"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
+          '<button class="st-notif-action-btn" id="st-notif-mark-all"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg> ' + __("Mark all read") + '</button>' +
+          '<button class="st-notif-action-btn st-notif-close-btn" id="st-notif-close" title="' + __("Close") + '"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
         '</div>' +
       '</div>'
     );
@@ -81,8 +81,8 @@
     /* Tabs */
     $tabs = $(
       '<div class="st-notif-tabs">' +
-        '<button class="st-notif-tab active" data-tab="notifications">Notifications</button>' +
-        '<button class="st-notif-tab" data-tab="events">Events</button>' +
+        '<button class="st-notif-tab active" data-tab="notifications">' + __("Notifications") + '</button>' +
+        '<button class="st-notif-tab" data-tab="events">' + __("Events") + '</button>' +
       '</div>'
     );
     $tabs.find(".st-notif-tab").on("click", function () {
@@ -95,7 +95,7 @@
     /* Footer */
     var $foot = $(
       '<div class="st-notif-foot">' +
-        '<a href="#" class="st-notif-view-all">View all notifications &rarr;</a>' +
+        '<a href="#" class="st-notif-view-all">' + __("View all notifications") + ' &rarr;</a>' +
       '</div>'
     );
     $foot.find(".st-notif-view-all").on("click", function (e) {
@@ -148,7 +148,7 @@
 
   /* ── Load notifications ── */
   function loadNotifications() {
-    showLoading("Loading notifications…");
+    showLoading(__("Loading notifications…"));
     frappe.call({
       method: "frappe.desk.doctype.notification_log.notification_log.get_notification_logs",
       args: { limit: MAX_ITEMS },
@@ -160,7 +160,7 @@
         updateBadge(items);
       },
       error: function () {
-        showEmpty("Could not load notifications");
+        showEmpty(__("Could not load notifications"));
       },
     });
   }
@@ -198,7 +198,7 @@
           '</div>' +
         '</div>' +
         (!n.read
-          ? '<button class="st-notif-mark-read" title="Mark as read">&#9679;</button>'
+          ? '<button class="st-notif-mark-read" title="' + __("Mark as read") + '">&#9679;</button>'
           : '') +
       '</div>'
     );
@@ -222,7 +222,7 @@
 
   /* ── Load events (upcoming week) ── */
   function loadEvents() {
-    showLoading("Loading events…");
+    showLoading(__("Loading events…"));
     var today = frappe.datetime.nowdate();
     var next7 = frappe.datetime.add_days(today, 7);
     frappe.call({
@@ -239,7 +239,7 @@
         renderEvents(events);
       },
       error: function () {
-        showEmpty("Could not load events");
+        showEmpty(__("Could not load events"));
       },
     });
   }
@@ -250,7 +250,7 @@
       $list.html(
         '<div class="st-notif-empty">' +
           '<div class="st-notif-empty-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M8 3v4M16 3v4M3 10.5h18"/></svg></div>' +
-          'No upcoming events this week' +
+          __("No upcoming events this week") +
         '</div>'
       );
       return;
