@@ -207,7 +207,7 @@ class ThemeStudioTest(unittest.TestCase):
         self.assertIn("width: 100% !important;", login_css)
         self.assertIn("overflow: hidden !important;", login_css)
         self.assertIn(".st-login-company-fallback", login_css)
-        self.assertIn(".st-hide-powered .for-login .page-card-actions::after", login_css)
+        self.assertNotIn("Powered by Solvronix", login_css + js)
 
     def test_preview_elements_expose_contextual_property_inspector(self):
         js = PAGE.read_text(encoding="utf-8")
@@ -250,10 +250,10 @@ class ThemeStudioTest(unittest.TestCase):
         self.assertIn("/assets/solvronix_desk/css/theme_studio.css?v=19", hooks)
         self.assertIn("/assets/solvronix_desk/js/command_palette.js?v=9", hooks)
         self.assertIn("/assets/solvronix_desk/js/dark_mode.js?v=12", hooks)
-        self.assertIn("/assets/solvronix_desk/js/solvronix_desk.js?v=63", hooks)
+        self.assertIn("/assets/solvronix_desk/js/solvronix_desk.js?v=64", hooks)
         self.assertIn("/assets/solvronix_desk/js/theme_runtime.js?v=8", hooks)
         self.assertIn("/assets/solvronix_desk/js/chart_runtime.js?v=4", hooks)
-        self.assertIn("/assets/solvronix_desk/css/login.css?v=11", hooks)
+        self.assertIn("/assets/solvronix_desk/css/login.css?v=12", hooks)
         self.assertIn("/assets/solvronix_desk/js/login_theme.js?v=8", hooks)
         self.assertIn('"on_update": "solvronix_desk.events.theme_settings_on_update"', hooks)
 
@@ -327,7 +327,6 @@ class ThemeStudioTest(unittest.TestCase):
             ROOT / "solvronix_desk" / "solvronix_desk" / "doctype" /
             "theme_settings" / "theme_settings.js"
         ).read_text(encoding="utf-8")
-        desk_js = (ROOT / "solvronix_desk" / "public" / "js" / "solvronix_desk.js").read_text(encoding="utf-8")
 
         for key in ("tagline", "enable_command_palette", "enable_smart_home"):
             self.assertIn(f'"{key}"', js)
@@ -337,7 +336,6 @@ class ThemeStudioTest(unittest.TestCase):
         self.assertIn("st_allow_raw_theme_settings", js)
         self.assertIn("st_allow_raw_theme_settings", settings_js)
         self.assertIn('frappe.set_route("theme-studio")', settings_js)
-        self.assertIn('/desk/theme-studio', desk_js)
 
     def test_loading_a_profile_preserves_site_identity_in_the_editor(self):
         """Regression test: loading ANY profile (built-in or custom) directly

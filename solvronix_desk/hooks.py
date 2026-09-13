@@ -12,13 +12,13 @@ app_version = "2.1.3"
 required_apps = []
 
 # ── PUBLIC LOGIN ASSETS ────────────────────────────────────────────────────────
-web_include_css = ["/assets/solvronix_desk/css/login.css?v=11"]
+web_include_css = ["/assets/solvronix_desk/css/login.css?v=12"]
 web_include_js = ["/assets/solvronix_desk/js/login_theme.js?v=8"]
 
 # ── AUTHENTICATED DESK ASSETS ──────────────────────────────────────────────────
 # Query versions are bumped whenever an asset changes to invalidate browser cache.
 app_include_css = [
-    "/assets/solvronix_desk/css/solvronix_desk.css?v=58",
+    "/assets/solvronix_desk/css/solvronix_desk.css?v=59",
     "/assets/solvronix_desk/css/sidebar.css?v=31",
     "/assets/solvronix_desk/css/command_palette.css?v=4",
     "/assets/solvronix_desk/css/smart_home.css?v=7",
@@ -34,7 +34,7 @@ app_include_css = [
 app_include_js = [
     "/assets/solvronix_desk/js/dark_mode.js?v=12",
     "/assets/solvronix_desk/js/personalization.js?v=1",
-    "/assets/solvronix_desk/js/solvronix_desk.js?v=63",
+    "/assets/solvronix_desk/js/solvronix_desk.js?v=64",
     "/assets/solvronix_desk/js/sidebar.js?v=3",
     "/assets/solvronix_desk/js/command_palette.js?v=9",
     "/assets/solvronix_desk/js/progressive_forms.js?v=4",

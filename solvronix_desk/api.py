@@ -4,7 +4,7 @@ import json
 import re
 
 import frappe
-from solvronix_desk import theme_engine
+from solvronix_desk import theme_engine, theme_store
 
 # ── 1. LEGACY COMPATIBILITY CONSTANTS / NORMALIZERS ───────────────────────────
 # Site-default font size name → root font-size. Rem-based sizing scales with it.
@@ -80,12 +80,10 @@ def get_theme_css():
     Per-user font/density overrides are applied client-side on top of this.
     """
     try:
-        settings = frappe.get_single("Theme Settings")
-        enabled = bool(getattr(settings, "theme_enabled", 1))
-        return theme_engine.render_css(
-            theme_engine.resolve_config(settings, getattr(frappe.session, "user", None)),
-            enabled,
+        _settings, config, enabled, _shared = theme_store.runtime(
+            getattr(frappe.session, "user", None)
         )
+        return theme_engine.render_css(config, enabled)
     except Exception:
         frappe.log_error("solvronix_desk.api.get_theme_css failed")
         return ""
@@ -111,13 +109,13 @@ def save_theme_config(config):
 def get_branding():
     """Return branding config dict for JS logo/favicon/title injection."""
     try:
-        s = frappe.get_single("Theme Settings")
-        config = theme_engine.resolve_config(s, getattr(frappe.session, "user", None))
+        s, config, _enabled, shared = theme_store.runtime(getattr(frappe.session, "user", None))
+        # A bench-wide theme owns identity; this site's own fields must not leak in.
         return {
-            "company_name": config.get("app_title") or s.company_name,
-            "logo":         config.get("company_logo") or s.logo,
-            "favicon":      config.get("favicon") or s.favicon,
-            "tagline":      s.tagline,
+            "company_name": config.get("app_title") or (None if shared else s.company_name),
+            "logo":         config.get("company_logo") or (None if shared else s.logo),
+            "favicon":      config.get("favicon") or (None if shared else s.favicon),
+            "tagline":      config.get("tagline") if shared else s.tagline,
             "login_heading": config.get("login_heading"),
             "login_description": config.get("login_description"),
             "footer_text": config.get("footer_text"),

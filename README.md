@@ -125,9 +125,6 @@ Theme Studio's **Chart System** can now edit global chart defaults and permissio
 ### Details Everywhere
 Keycap-styled keyboard hints, thin floating scrollbars, brand-tinted text selection, shimmer on loading placeholders, and a brand accent on the selected command-palette row.
 
-### Setup Guide Banner
-On first launch, a checklist banner guides System Manager users through the initial configuration steps: set company name, upload logo, choose brand colors. Dismisses permanently once complete.
-
 ---
 
 ## Screenshots

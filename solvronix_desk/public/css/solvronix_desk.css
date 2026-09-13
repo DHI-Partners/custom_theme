@@ -377,7 +377,6 @@ body.st-sidebar-collapsed .desk-sidebar .sidebar-group-title,
 body.st-sidebar-collapsed .desk-sidebar .sidebar-section-head,
 body.st-sidebar-collapsed #st-module-switch-btn span:not(:first-child),
 body.st-sidebar-collapsed #st-quick-nav a span,
-body.st-sidebar-collapsed #st-powered-by,
 body.st-sidebar-collapsed #st-sidebar-header .st-app-brand {
   display: none !important;
 }
@@ -1350,83 +1349,6 @@ html[data-theme="dark"] .for-forgot .page-card-actions::after {
 #st-quick-nav a:hover {
   color: var(--st-accent) !important;
   background: color-mix(in srgb, var(--st-accent) 12%, transparent);
-}
-
-/* ── POWERED-BY BADGE ───────────────────────────────────────────────────────── */
-#st-powered-by {
-  text-align: center;
-  font-size: 10px;
-  color: rgba(0,0,0,0.28);  /* dark text — works on light sidebar */
-  padding: 3px 0 8px;
-  letter-spacing: 0.03em;
-}
-/* Dark mode: sidebar is brand-colored (dark), so text must be white */
-html[data-theme="dark"] #st-powered-by {
-  color: rgba(255,255,255,0.28);
-}
-
-/* ── SETUP GUIDE BANNER ─────────────────────────────────────────────────────── */
-#st-setup-guide {
-  position: relative;
-  margin: 16px 16px 0;
-  background: var(--st-card-bg, #fff);
-  border: 1px solid var(--st-card-border, rgba(0,0,0,0.08));
-  border-left: 3px solid var(--st-accent);
-  border-radius: var(--st-radius, 8px);
-  padding: 14px 40px 14px 18px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
-}
-#st-setup-guide .st-sg-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--st-text, #1A1A2E);
-  margin-bottom: 10px;
-}
-#st-setup-guide .st-sg-step {
-  font-size: 12px;
-  color: var(--st-text-muted, #6B7280);
-  margin-bottom: 5px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-#st-setup-guide .st-sg-step.done {
-  color: #16a34a;
-}
-#st-setup-guide .st-sg-actions {
-  margin-top: 12px;
-}
-#st-setup-guide .st-sg-open-btn {
-  font-size: 12px;
-  padding: 5px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  background: var(--st-accent) !important;
-  color: #fff !important;
-  border: none !important;
-  text-decoration: none !important;
-  display: inline-block;
-  font-weight: 600;
-}
-#st-setup-guide .st-sg-open-btn:hover {
-  opacity: 0.88;
-  color: #fff !important;
-  text-decoration: none !important;
-}
-#st-setup-guide .st-sg-dismiss {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  font-size: 20px;
-  cursor: pointer;
-  color: var(--st-text-muted, #6B7280);
-  background: none;
-  border: none;
-  line-height: 1;
-  padding: 0;
-}
-#st-setup-guide .st-sg-dismiss:hover {
-  color: var(--st-text, #1A1A2E);
 }
 
 /* ── MISC UI POLISH ─────────────────────────────────────────────────────────── */

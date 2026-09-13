@@ -574,77 +574,6 @@
   }
 
   /* ────────────────────────────────────────────────────────────────────────────
-     8. POWERED-BY BADGE
-  ──────────────────────────────────────────────────────────────────────────── */
-  function injectPoweredBy() {
-    var $sidebar = $(".body-sidebar").first();
-    if (!$sidebar.length || $sidebar.find("#st-powered-by").length) return;
-    $sidebar.append('<div id="st-powered-by">Powered by <strong>Solvronix</strong></div>');
-  }
-
-  /* ────────────────────────────────────────────────────────────────────────────
-     9a. SETUP GUIDE BANNER (first-run, System Manager only)
-  ──────────────────────────────────────────────────────────────────────────── */
-  function injectSetupGuide() {
-    /* Only System Manager */
-    if (!frappe.user_roles || !frappe.user_roles.includes("System Manager")) return;
-    if (document.getElementById("st-setup-guide")) return;
-
-    var b = frappe.boot || {};
-    var branding = b.st_branding || {};
-    var brand    = (b.st_brand || "").toLowerCase().replace(/\s/g, "");
-
-    /* Storage key is tied to the install: changes after every reinstall
-       so a fresh install always shows the guide regardless of prior dismissal */
-    var installKey = b.st_install_key || "v1";
-    var storageKey = "st_setup_" + installKey;
-
-    if (localStorage.getItem(storageKey) === "done") return;
-
-    var step1done = !!branding.company_name;
-    var step2done = !!brand;
-    var step3done = !!branding.logo;
-
-    /* Auto-dismiss once everything is configured */
-    if (step1done && step2done && step3done) {
-      localStorage.setItem(storageKey, "done");
-      return;
-    }
-
-    function stepHtml(done, label) {
-      var icon = done
-        ? '<span class="st-sg-icon" style="color:#16a34a;font-size:14px">&#10003;</span>'
-        : '<span class="st-sg-icon" style="color:#6B7280;font-size:14px">&#9675;</span>';
-      return '<div class="st-sg-step' + (done ? " done" : "") + '">' + icon + label + "</div>";
-    }
-
-    var html =
-      '<div id="st-setup-guide">' +
-        '<button class="st-sg-dismiss" title="' + frappe._("Dismiss") + '">&times;</button>' +
-        '<div class="st-sg-title">&#9881; ' + frappe._("Solvronix Desk Setup") + '</div>' +
-        stepHtml(step1done, frappe._("Set your company name")) +
-        stepHtml(step2done, frappe._("Choose a brand color")) +
-        stepHtml(step3done, frappe._("Upload your logo")) +
-        '<div class="st-sg-actions">' +
-          '<a href="/desk/theme-studio" class="st-sg-open-btn">' + frappe._("Open Theme Studio") + ' &rarr;</a>' +
-        "</div>" +
-      "</div>";
-
-    var target = document.querySelector(".layout-main-section-wrapper") ||
-                 document.querySelector(".layout-main");
-    if (!target) return;
-    target.insertAdjacentHTML("afterbegin", html);
-
-    document.getElementById("st-setup-guide")
-      .querySelector(".st-sg-dismiss")
-      .addEventListener("click", function () {
-        localStorage.setItem(storageKey, "done");
-        var el = document.getElementById("st-setup-guide");
-        if (el) el.remove();
-      });
-  }
-
-  /* ────────────────────────────────────────────────────────────────────────────
      9. TOP TOOLBAR — language switcher + all-options panel
   ──────────────────────────────────────────────────────────────────────────── */
   function injectTopToolbar() {
@@ -1499,10 +1428,7 @@
       injectSidebarBrandingHeader();   /* retry — branding may already be cached */
       injectIconRail();
       patchNativeSidebar();
-      injectPoweredBy();
     });
-
-    injectSetupGuide();
 
     if (frappe.router && frappe.router.on) {
       frappe.router.on("change", syncRailHighlight);
@@ -1513,8 +1439,6 @@
     $(document).on("page-change", function () {
       injectIconRail();
       patchNativeSidebar();
-      injectPoweredBy();
-      injectSetupGuide();
       setTimeout(moveNativeBell, 400);
       setTimeout(syncRailHighlight, 0);
     });

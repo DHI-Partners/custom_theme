@@ -9,7 +9,6 @@ def after_install():
         if not frappe.db.exists("DocType", "Theme Settings"):
             return
         defaults = {
-            "company_name":           "Solvronix",
             "brand_color":            "#1B3F7E",
             "accent_color":           "#F57C00",
             "enable_command_palette": 1,

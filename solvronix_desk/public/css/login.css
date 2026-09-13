@@ -418,27 +418,6 @@ body:has(.for-forgot) .page-header-wrapper {
   text-decoration: underline !important;
 }
 
-/* ── "POWERED BY SOLVRONIX" ──────────────────────────────────────────────── */
-.for-login .page-card-actions::after,
-.for-forgot .page-card-actions::after {
-  content: "Powered by Solvronix";
-  display: block;
-  text-align: center;
-  font-size: 11px;
-  color: var(--st-text-muted, #9CA3AF);
-  margin-top: 22px;
-  letter-spacing: 0.04em;
-  opacity: 0.65;
-}
-
-/* Generated content cannot be removed with querySelector; the public runtime
-   toggles this root class from Theme Studio's Hide powered setting. */
-.st-hide-powered .for-login .page-card-actions::after,
-.st-hide-powered .for-forgot .page-card-actions::after {
-  content: none !important;
-  display: none !important;
-}
-
 /* ── DARK MODE ───────────────────────────────────────────────────────────── */
 [data-theme="dark"] .for-login .page-card-head,
 [data-theme="dark"] .for-forgot .page-card-head {

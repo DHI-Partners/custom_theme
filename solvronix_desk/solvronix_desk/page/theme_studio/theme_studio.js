@@ -1224,7 +1224,7 @@ solvronix_desk.ThemeStudio = class ThemeStudio {
 			this._icon("mail") + '<input value="jane@example.com"></div></label><label data-inspector="login.fields"><span>' + __("Password") +
 			'</span><div class="sts-login-input">' + this._icon("lock") + '<input type="password" value="password">' +
 			this._icon("eye") + '</div></label><a class="sts-login-forgot">' + __("Forgot password?") + '</a>' +
-			'<button data-inspector="login.button">' + __("Continue") + '</button><small data-login-powered data-inspector="login.footer">' + __("Powered by Solvronix") +
+			'<button data-inspector="login.button">' + __("Continue") + '</button><small data-login-powered data-inspector="login.footer">' + __("Powered by Frappe") +
 			'</small></div></div><small class="sts-login-custom-footer" data-login-footer data-inspector="login.footer"></small></div>';
 	}
 

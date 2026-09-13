@@ -2,7 +2,7 @@
 
 import frappe
 
-from solvronix_desk import chart_config, chart_registry, theme_engine
+from solvronix_desk import chart_config, chart_registry, theme_engine, theme_store
 from solvronix_desk import chart_preview
 
 
@@ -349,6 +349,8 @@ def set_user_theme_profile(profile_id):
     user = frappe.session.user
     if not user or user == "Guest":
         frappe.throw("Not permitted")
+    if theme_store.read():
+        frappe.throw("Theme selection is locked by an administrator")
     settings = frappe.get_single("Theme Settings")
     if getattr(settings, "theme_lock", 0) or not getattr(settings, "allow_user_theme", 1):
         frappe.throw("Theme selection is locked by an administrator")
@@ -385,9 +387,20 @@ def set_user_theme_profile(profile_id):
 @frappe.whitelist()
 def get_resolved_theme_runtime():
     """Return the currently resolved profile for live schedule/user updates."""
-    settings = frappe.get_single("Theme Settings")
     user = getattr(frappe.session, "user", None)
-    config = theme_engine.resolve_config(settings, user)
+    settings, config, enabled, shared = theme_store.runtime(user)
+    if shared:
+        # A bench-wide theme is fixed: no profiles to pick and nothing scheduled.
+        return {
+            "css": theme_engine.render_css(config, enabled),
+            "config": config,
+            "preferred_mode": config["preferred_mode"],
+            "active_profile": "",
+            "schedule": {"enabled": False},
+            "chart_schema": chart_config.load_schema(),
+            "profiles": [],
+            "flags": {"enabled": int(enabled), "allow_user_theme": 0, "locked": 1},
+        }
     profile_list = [
         {"id": profile["id"], "name": profile["name"], "builtin": profile["builtin"]}
         for profile in theme_engine.profiles(settings)
