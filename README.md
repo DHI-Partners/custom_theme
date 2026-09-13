@@ -29,7 +29,7 @@ Open Theme Studio, enter your company name, upload your logo, pick your two bran
 ### Theme Studio — Visual Drag & Drop Editor
 Open **Theme Studio** from `Ctrl+K` or `/desk/theme-studio`. It is now the single user-facing home for theme settings, branding, feature toggles, and visual editing. Preview the result on dashboard, form, table, and login scenes; drag dashboard blocks into a new order; compare desktop/tablet/mobile and Frappe Default views; undo or reset changes; save a draft; then publish.
 
-Theme Studio includes Light, Dark, High Contrast, Frappe Default, Solvronix, and Forest profiles. System Managers can create, duplicate, rename, update, delete, import, export, schedule, and restore profiles. Themes can be assigned site-wide or by user, role, and company, while optional per-user profile selection and administrator locking control who can personalize the Desk.
+Theme Studio includes Light, Dark, High Contrast, Frappe Default, Solvronix, and Forest profiles. System Managers can create, duplicate, rename, update, delete, import, export, and restore profiles. The published theme applies to every site on the bench; there are no per-user, role, company, or scheduled themes.
 
 Every Studio token is rendered into the real Desk and login page, including the top toolbar and actual Frappe sidebar. Publishing creates a restorable backup and refreshes connected sessions without requiring an asset rebuild.
 

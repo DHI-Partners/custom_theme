@@ -79,11 +79,9 @@ def runtime(user=None):
 
 # ── 2. EXPORT (MASTER SITE ONLY) ───────────────────────────────────────────────
 def site_theme(settings):
-    """The master's site-wide theme, without its per-user, role or schedule rules."""
-    base = theme_engine.published_config(settings)
-    default_id = theme_engine.assignments(settings)["default"]
-    selected = theme_engine.profile_by_id(settings, default_id) if default_id else None
-    return theme_engine.resolve_profile_config(base, selected["config"]) if selected else base
+    """The master's published theme. Stored user, role, company, default-profile
+    and schedule rules are ignored: Theme Studio no longer edits them."""
+    return theme_engine.published_config(settings)
 
 
 def export(settings=None):

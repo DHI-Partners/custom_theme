@@ -107,20 +107,21 @@ class ThemeStoreTest(unittest.TestCase):
         self.assertFalse(Path(STORE.path()).exists())
         FRAPPE.cache.delete.assert_not_called()
 
-    def test_site_default_profile_is_exported_but_user_rules_are_not(self):
-        settings = FakeSettings(theme_assignments=json.dumps({
-            "default": "builtin-dark",
-            "users": {"jane@example.com": "builtin-high-contrast"},
-        }))
+    def test_only_the_published_theme_is_exported(self):
+        settings = FakeSettings(
+            theme_studio_config=studio(brand_color="#112233", preferred_mode="Light"),
+            theme_assignments=json.dumps({
+                "default": "builtin-dark",
+                "users": {"jane@example.com": "builtin-high-contrast"},
+            }),
+            theme_schedule=json.dumps({"enabled": True, "profile_id": "builtin-dark"}),
+        )
         STORE.export(settings)
 
-        expected = ENGINE.resolve_profile_config(
-            ENGINE.published_config(settings),
-            ENGINE.profile_by_id(settings, "builtin-dark")["config"],
-        )
         shared = STORE.read()["config"]
-        self.assertEqual(shared["preferred_mode"], expected["preferred_mode"])
-        self.assertEqual(shared["brand_color"], expected["brand_color"])
+        self.assertEqual(shared, ENGINE.published_config(settings))
+        self.assertEqual(shared["brand_color"], "#112233")
+        self.assertEqual(shared["preferred_mode"], "Light")
         self.assertFalse(shared["high_contrast"])
 
     def test_unreadable_or_malformed_file_is_ignored(self):
