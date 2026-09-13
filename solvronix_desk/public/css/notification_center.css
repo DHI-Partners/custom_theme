@@ -18,6 +18,11 @@
   transition: background 150ms;
 }
 
+.st-notif-bell-icon {
+  display: flex;
+  align-items: center;
+}
+
 #st-notif-bell:hover {
   background: rgba(255,255,255,0.12);
   color: #fff;
@@ -326,4 +331,30 @@
   #st-notif-panel {
     width: 100vw;
   }
+}
+
+
+/* ── Inline SVG icons inside the panel inherit the surrounding text colour ── */
+#st-notif-panel svg,
+#st-notif-bell svg {
+  flex-shrink: 0;
+  display: block;
+  color: inherit;
+  stroke: currentColor;
+  fill: none;
+}
+.st-notif-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.st-notif-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.st-notif-empty-icon {
+  display: flex;
+  justify-content: center;
+  color: var(--text-muted, #9aa4ae);
 }

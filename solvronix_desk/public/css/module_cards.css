@@ -263,3 +263,20 @@ html[data-theme="dark"] .st-ws-skeleton .st-ws-card-desc {
     font-size: 18px;
   }
 }
+
+
+/* ── Card icon glyphs ─────────────────────────────────────────────────────────
+   Icons are inline stroke SVGs that inherit the card accent through
+   currentColor; unknown workspaces still fall back to a letter badge. */
+.st-ws-card-icon svg {
+  display: block;
+  width: 26px;
+  height: 26px;
+  stroke: currentColor;
+  fill: none;
+}
+.st-ws-icon-letter {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1;
+}

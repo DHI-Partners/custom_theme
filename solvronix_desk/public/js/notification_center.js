@@ -34,7 +34,7 @@
 
     $bell = $(
       '<button id="st-notif-bell" title="Notifications" aria-label="Notifications">' +
-        '<span>&#128276;</span>' +
+        '<span class="st-notif-bell-icon"><svg class="st-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8.5a6 6 0 0 0-12 0c0 6.5-2.5 8.5-2.5 8.5h17S18 15 18 8.5"/><path d="M13.7 20.5a2 2 0 0 1-3.4 0"/></svg></span>' +
         '<span class="st-notif-badge st-hidden">0</span>' +
       '</button>'
     );
@@ -68,10 +68,10 @@
     /* Header */
     var $head = $(
       '<div class="st-notif-head">' +
-        '<span class="st-notif-title">&#128276;&nbsp; Notifications</span>' +
+        '<span class="st-notif-title"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8.5a6 6 0 0 0-12 0c0 6.5-2.5 8.5-2.5 8.5h17S18 15 18 8.5"/><path d="M13.7 20.5a2 2 0 0 1-3.4 0"/></svg> Notifications</span>' +
         '<div class="st-notif-head-actions">' +
-          '<button class="st-notif-action-btn" id="st-notif-mark-all">&#10003; Mark all read</button>' +
-          '<button class="st-notif-action-btn st-notif-close-btn" id="st-notif-close" title="Close">&#10005;</button>' +
+          '<button class="st-notif-action-btn" id="st-notif-mark-all"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Mark all read</button>' +
+          '<button class="st-notif-action-btn st-notif-close-btn" id="st-notif-close" title="Close"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
         '</div>' +
       '</div>'
     );
@@ -170,7 +170,7 @@
     if (!items.length) {
       $list.html(
         '<div class="st-notif-empty">' +
-          '<div class="st-notif-empty-icon">&#128276;</div>' +
+          '<div class="st-notif-empty-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8.5a6 6 0 0 0-12 0c0 6.5-2.5 8.5-2.5 8.5h17S18 15 18 8.5"/><path d="M13.7 20.5a2 2 0 0 1-3.4 0"/></svg></div>' +
           __("You're all caught up!") +
         '</div>'
       );
@@ -184,7 +184,7 @@
   function makeNotifItem(n) {
     var readClass = n.read ? "read" : "unread";
     var timeAgo   = frappe.datetime.comment_when(n.creation);
-    var avatar    = frappe.avatar ? frappe.avatar(n.from_user, "avatar-small") : "&#128100;";
+    var avatar    = frappe.avatar ? frappe.avatar(n.from_user, "avatar-small") : '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg>';
     var docLabel  = n.document_type ? "<span class='st-notif-doctype'>" + __(n.document_type) + "</span>" : "";
 
     var $item = $(
@@ -249,7 +249,7 @@
     if (!events.length) {
       $list.html(
         '<div class="st-notif-empty">' +
-          '<div class="st-notif-empty-icon">&#128197;</div>' +
+          '<div class="st-notif-empty-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M8 3v4M16 3v4M3 10.5h18"/></svg></div>' +
           'No upcoming events this week' +
         '</div>'
       );
@@ -261,7 +261,7 @@
         : "";
       var $item = $(
         '<div class="st-notif-item read">' +
-          '<div class="st-notif-avatar">&#128197;</div>' +
+          '<div class="st-notif-avatar"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M8 3v4M16 3v4M3 10.5h18"/></svg></div>' +
           '<div class="st-notif-body">' +
             '<div class="st-notif-subject">' + (ev.subject || "") + '</div>' +
             '<div class="st-notif-meta">' +

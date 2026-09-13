@@ -6,51 +6,83 @@
 
 (function () {
   /* ── Workspace color + icon map ─────────────────────────────── */
+  /* ── Monochrome inline SVG icon set — every glyph inherits the card's
+     accent colour through currentColor, so the grid stays consistent in
+     light and dark surfaces instead of relying on OS emoji fonts. ── */
+  var ICONS = {
+    education: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5 12 4l9.5 4.5L12 13z"/><path d="M6.5 10.7V16c0 1.4 2.5 2.6 5.5 2.6s5.5-1.2 5.5-2.6v-5.3"/><path d="M21.5 8.5V14"/></svg>',
+    money: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><circle cx="12" cy="12" r="2.8"/><path d="M6 9v6M18 9v6"/></svg>',
+    trend: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.5 9.5 11l4 4L21 7"/><path d="M15.5 7H21v5.5"/></svg>',
+    crm: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.3"/><path d="M2.8 20a6.2 6.2 0 0 1 12.4 0"/><path d="M16.5 5.6a3.3 3.3 0 0 1 0 5.9"/><path d="M18.4 14.4A6.2 6.2 0 0 1 21.5 20"/></svg>',
+    cart: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.5" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3.5h2.6l2.4 11.1a1.7 1.7 0 0 0 1.7 1.4h8.3a1.7 1.7 0 0 0 1.7-1.3l1.6-6.7H6.2"/></svg>',
+    box: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2.8 8.2 4.4v9.6L12 21.2 3.8 16.8V7.2z"/><path d="m3.8 7.2 8.2 4.4 8.2-4.4"/><path d="M12 11.6v9.6"/></svg>',
+    users: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.3"/><path d="M2.8 20a6.2 6.2 0 0 1 12.4 0"/><path d="M16.5 5.6a3.3 3.3 0 0 1 0 5.9"/><path d="M18.4 14.4A6.2 6.2 0 0 1 21.5 20"/></svg>',
+    payroll: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><path d="M2.5 10h19"/><path d="M6.5 14.5h3"/></svg>',
+    factory: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 20.5V10l6 3.8V10l6 3.8V6.5h5.5a1.5 1.5 0 0 1 1.5 1.5v12.5z"/><path d="M2.5 20.5h19"/><path d="M7 17h1.5M12 17h1.5M17 17h1.5"/></svg>',
+    clipboard: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5H7.5A1.5 1.5 0 0 0 6 6v13.5A1.5 1.5 0 0 0 7.5 21h9a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H15"/><rect x="9" y="2.5" width="6" height="4" rx="1.2"/><path d="M9.5 11.5h5M9.5 15.5h3"/></svg>',
+    quality: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7 4.5 5.9v5.4c0 4.6 3.1 8.3 7.5 9.9 4.4-1.6 7.5-5.3 7.5-9.9V5.9z"/><path d="m8.8 11.9 2.3 2.3 4.1-4.4"/></svg>',
+    support: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13.5v-1.6a8 8 0 0 1 16 0v1.6"/><rect x="2.6" y="13" width="4.2" height="6" rx="1.8"/><rect x="17.2" y="13" width="4.2" height="6" rx="1.8"/><path d="M20 19v.6a2.6 2.6 0 0 1-2.6 2.6H13"/></svg>',
+    assets: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V6.5a1.5 1.5 0 0 1 1.5-1.5H12a1.5 1.5 0 0 1 1.5 1.5V21"/><path d="M13.5 21V11h5A1.5 1.5 0 0 1 20 12.5V21"/><path d="M2.5 21h19"/><path d="M7 9h3M7 13h3M7 17h3M16.5 15h1M16.5 18h1"/></svg>',
+    bank: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 4l9 6.5"/><path d="M5 10.5V19M9.7 10.5V19M14.3 10.5V19M19 10.5V19"/><path d="M2.5 19h19"/></svg>',
+    health: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5h3.5L9 9.5l2.5 6 2-3h6.5"/><path d="M20.6 9a4.6 4.6 0 0 0-8.6-2.3A4.6 4.6 0 0 0 3.4 9c0 4.9 8.6 10.4 8.6 10.4S20.6 13.9 20.6 9"/></svg>',
+    globe: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14.5 14.5 0 0 1 0 18a14.5 14.5 0 0 1 0-18"/></svg>',
+    settings: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.1"/><path d="M19.2 14.6a1.5 1.5 0 0 0 .3 1.7l.1.1a1.8 1.8 0 1 1-2.6 2.6l-.1-.1a1.5 1.5 0 0 0-2.5 1.1v.2a1.8 1.8 0 1 1-3.6 0v-.1a1.5 1.5 0 0 0-2.6-1.1l-.1.1a1.8 1.8 0 1 1-2.6-2.6l.1-.1a1.5 1.5 0 0 0-1.1-2.5h-.2a1.8 1.8 0 1 1 0-3.6h.1a1.5 1.5 0 0 0 1.1-2.6l-.1-.1a1.8 1.8 0 1 1 2.6-2.6l.1.1a1.5 1.5 0 0 0 2.5-1.1v-.2a1.8 1.8 0 1 1 3.6 0v.1a1.5 1.5 0 0 0 2.6 1.1l.1-.1a1.8 1.8 0 1 1 2.6 2.6l-.1.1a1.5 1.5 0 0 0 1.1 2.5h.2a1.8 1.8 0 1 1 0 3.6h-.1a1.5 1.5 0 0 0-1.4.9z"/></svg>',
+    spark: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2.8 2.6 6.6 6.6 2.6-6.6 2.6L12 21.2l-2.6-6.6L2.8 12l6.6-2.6z"/></svg>',
+    home: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 10.5 8.5-7 8.5 7V19a1.5 1.5 0 0 1-1.5 1.5h-14A1.5 1.5 0 0 1 3.5 19z"/><path d="M9.5 20.5v-6.5h5v6.5"/></svg>',
+    receipt: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2.8h14v18.4l-2.3-1.6-2.4 1.6-2.3-1.6-2.3 1.6-2.4-1.6L5 21.2z"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></svg>',
+    report: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.8H7a2 2 0 0 0-2 2v14.4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7.8z"/><path d="M14 2.8V8h5"/><path d="M8.8 17v-3.4M12 17v-5.4M15.2 17v-2"/></svg>',
+    build: '<svg class="st-ws-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.2 6.6a3.9 3.9 0 0 0 5.1 5.1l-7 7a2.6 2.6 0 0 1-3.7-3.7z"/><path d="m5.6 5.6 3.6 3.6"/><path d="M3.4 8.4 8.4 3.4l2.2 2.2-5 5z"/></svg>',
+  };
+
   var WS_CONFIG = {
     /* Edvronix */
-    "edvronix app":         { color: "#F97316", icon: "🎓", desc: "Students, fees, exams & attendance" },
-    "edvronix":             { color: "#F97316", icon: "🎓", desc: "Students, fees, exams & attendance" },
-    "education":            { color: "#F97316", icon: "🎓", desc: "Students, fees, exams & attendance" },
+    "edvronix app":         { color: "#F97316", icon: ICONS.education, desc: "Students, fees, exams & attendance" },
+    "edvronix":             { color: "#F97316", icon: ICONS.education, desc: "Students, fees, exams & attendance" },
+    "education":            { color: "#F97316", icon: ICONS.education, desc: "Students, fees, exams & attendance" },
     /* Accounts / Finance */
-    "accounts":             { color: "#F59E0B", icon: "💰", desc: "Invoices, ledger & balance sheets" },
-    "accounting":           { color: "#F59E0B", icon: "💰", desc: "Invoices, ledger & balance sheets" },
-    "finance":              { color: "#F59E0B", icon: "💰", desc: "Invoices, ledger & balance sheets" },
+    "accounts":             { color: "#F59E0B", icon: ICONS.money, desc: "Invoices, ledger & balance sheets" },
+    "accounting":           { color: "#F59E0B", icon: ICONS.money, desc: "Invoices, ledger & balance sheets" },
+    "finance":              { color: "#F59E0B", icon: ICONS.money, desc: "Invoices, ledger & balance sheets" },
+    "invoicing":            { color: "#F59E0B", icon: ICONS.receipt, desc: "Sales invoices & payments" },
+    "financial reports":    { color: "#3B82F6", icon: ICONS.report, desc: "Balance sheet, P&L & ledgers" },
     /* Sales / Selling */
-    "selling":              { color: "#EF4444", icon: "📈", desc: "Quotations, orders & customers" },
-    "sales":                { color: "#EF4444", icon: "📈", desc: "Quotations, orders & customers" },
-    "crm":                  { color: "#06B6D4", icon: "🤝", desc: "Leads, deals & opportunities" },
+    "selling":              { color: "#EF4444", icon: ICONS.trend, desc: "Quotations, orders & customers" },
+    "sales":                { color: "#EF4444", icon: ICONS.trend, desc: "Quotations, orders & customers" },
+    "crm":                  { color: "#06B6D4", icon: ICONS.crm, desc: "Leads, deals & opportunities" },
     /* Buying / Purchase */
-    "buying":               { color: "#F59E0B", icon: "🛒", desc: "Purchase orders & suppliers" },
-    "purchase":             { color: "#F59E0B", icon: "🛒", desc: "Purchase orders & suppliers" },
+    "buying":               { color: "#F59E0B", icon: ICONS.cart, desc: "Purchase orders & suppliers" },
+    "purchase":             { color: "#F59E0B", icon: ICONS.cart, desc: "Purchase orders & suppliers" },
     /* Stock / Inventory */
-    "stock":                { color: "#3B82F6", icon: "📦", desc: "Warehouses, items & deliveries" },
-    "inventory":            { color: "#3B82F6", icon: "📦", desc: "Warehouses, items & deliveries" },
+    "stock":                { color: "#3B82F6", icon: ICONS.box, desc: "Warehouses, items & deliveries" },
+    "inventory":            { color: "#3B82F6", icon: ICONS.box, desc: "Warehouses, items & deliveries" },
     /* HR / Payroll */
-    "hr":                   { color: "#8B5CF6", icon: "👥", desc: "Employees, attendance & leave" },
-    "human resources":      { color: "#8B5CF6", icon: "👥", desc: "Employees, attendance & leave" },
-    "payroll":              { color: "#8B5CF6", icon: "💸", desc: "Salary slips & payroll runs" },
+    "hr":                   { color: "#8B5CF6", icon: ICONS.users, desc: "Employees, attendance & leave" },
+    "human resources":      { color: "#8B5CF6", icon: ICONS.users, desc: "Employees, attendance & leave" },
+    "payroll":              { color: "#8B5CF6", icon: ICONS.payroll, desc: "Salary slips & payroll runs" },
     /* Manufacturing */
-    "manufacturing":        { color: "#10B981", icon: "🏭", desc: "Work orders & production planning" },
+    "manufacturing":        { color: "#10B981", icon: ICONS.factory, desc: "Work orders & production planning" },
     /* Projects */
-    "projects":             { color: "#3B82F6", icon: "📋", desc: "Tasks, timesheets & milestones" },
+    "projects":             { color: "#3B82F6", icon: ICONS.clipboard, desc: "Tasks, timesheets & milestones" },
     /* Quality */
-    "quality":              { color: "#06B6D4", icon: "✅", desc: "Quality inspections & feedback" },
+    "quality":              { color: "#06B6D4", icon: ICONS.quality, desc: "Quality inspections & feedback" },
     /* Support */
-    "support":              { color: "#06B6D4", icon: "🎧", desc: "Issues, SLA & customer portal" },
+    "support":              { color: "#06B6D4", icon: ICONS.support, desc: "Issues, SLA & customer portal" },
     /* Assets */
-    "assets":               { color: "#10B981", icon: "🏗️", desc: "Fixed assets & depreciation" },
+    "assets":               { color: "#10B981", icon: ICONS.assets, desc: "Fixed assets & depreciation" },
     /* Loans */
-    "loans":                { color: "#F59E0B", icon: "🏦", desc: "Loan management & repayments" },
+    "loans":                { color: "#F59E0B", icon: ICONS.bank, desc: "Loan management & repayments" },
     /* Healthcare */
-    "healthcare":           { color: "#EF4444", icon: "🏥", desc: "Patients, appointments & billing" },
+    "healthcare":           { color: "#EF4444", icon: ICONS.health, desc: "Patients, appointments & billing" },
     /* Website */
-    "website":              { color: "#F97316", icon: "🌐", desc: "Web pages, blog & store" },
+    "website":              { color: "#F97316", icon: ICONS.globe, desc: "Web pages, blog & store" },
+    /* Developer / Build */
+    "build":                { color: "#6366F1", icon: ICONS.build, desc: "Doctypes, scripts & customisation" },
     /* Settings */
-    "settings":             { color: "#6B7280", icon: "⚙️",  desc: "System configuration & setup" },
+    "settings":             { color: "#6B7280", icon: ICONS.settings, desc: "System configuration & setup" },
     /* Solvronix */
-    "solvronix":            { color: "#F97316", icon: "🔷", desc: "Solvronix platform settings" },
+    "solvronix":            { color: "#F97316", icon: ICONS.spark, desc: "Solvronix platform settings" },
     /* Home — not shown in the grid itself */
-    "home":                 { color: "#6B7280", icon: "🏠", desc: "Home" },
+    "home":                 { color: "#6B7280", icon: ICONS.home, desc: "Home" },
   };
 
   /* Fallback colors cycling for unknown workspaces */
@@ -78,7 +110,7 @@
     var cfg = wsConfig(title);
     if (cfg) return cfg.icon;
     /* Use first letter as fallback */
-    return (title || "?").charAt(0).toUpperCase();
+    return '<span class="st-ws-icon-letter">' + (title || "?").charAt(0).toUpperCase() + '</span>';
   }
 
   function wsDesc(title) {

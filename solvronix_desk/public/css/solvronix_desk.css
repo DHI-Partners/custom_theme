@@ -26,6 +26,7 @@ textarea,
   /* ── Base brand colors (fallback defaults — overridden by desk.html & api.py) ── */
   --st-brand:   #1B1D26;
   --st-accent:  #6B3E66;
+  --st-accent-text: #FFFFFF;
   --st-primary: var(--st-brand); /* backwards-compat alias */
 
   /* ── color-mix() derived palette — hardcoded fallbacks for browsers without color-mix() support ── */
@@ -1466,8 +1467,10 @@ html[data-theme="dark"] .for-forgot .page-card-actions::after {
   color: var(--st-text) !important;
 }
 
+/* Filled controls (accent background) opt out — they need contrast against
+   their own background, not against the toolbar. */
 #st-top-toolbar a,
-#st-top-toolbar button,
+#st-top-toolbar button:not(#st-options-btn),
 #st-top-toolbar #st-tb-user {
   color: var(--st-toolbar-text, rgba(255,255,255,0.72)) !important;
 }
@@ -1541,12 +1544,16 @@ body.st-has-toolbar header.navbar {
 
 /* Today's View quick link */
 #st-sh-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-size: 11px;
   color: rgba(255,255,255,0.55);
   text-decoration: none;
   letter-spacing: 0.02em;
   transition: color 150ms;
 }
+#st-sh-link[hidden] { display: none; }
 #st-sh-link:hover {
   color: var(--st-accent, #F57C00);
   text-decoration: none;
@@ -1581,11 +1588,13 @@ body.st-has-toolbar header.navbar {
   border-color: rgba(255,255,255,0.22);
 }
 #st-lang-btn .st-lang-globe {
-  font-size: 13px;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  opacity: 0.9;
 }
 #st-lang-btn .st-lang-chevron {
-  font-size: 9px;
+  display: flex;
+  align-items: center;
   opacity: 0.6;
   transition: transform var(--st-transition);
 }
@@ -1644,15 +1653,17 @@ body.st-has-toolbar header.navbar {
   font-weight: 600;
 }
 .st-lang-item .st-lang-flag {
+  display: flex;
+  align-items: center;
   font-size: 15px;
   line-height: 1;
   flex-shrink: 0;
 }
 .st-lang-item .st-lang-check {
+  display: flex;
+  align-items: center;
   margin-left: auto;
   color: var(--st-accent);
-  font-size: 13px;
-  font-weight: 700;
 }
 
 /* Toolbar search bar ── */
@@ -1672,6 +1683,7 @@ body.st-has-toolbar header.navbar {
   transition: background 150ms, border-color 150ms, color 150ms;
   flex-shrink: 0;
 }
+#st-tb-search[hidden] { display: none; }
 #st-tb-search:hover {
   background: rgba(255,255,255,0.16);
   border-color: rgba(255,255,255,0.3);
@@ -1712,6 +1724,9 @@ body.st-has-toolbar header.navbar {
   transition: background 150ms, color 150ms;
   flex-shrink: 0;
   line-height: 1;
+}
+.st-tb-qn-btn svg {
+  display: block;
 }
 .st-tb-qn-btn:hover {
   background: rgba(255,255,255,0.12);
@@ -1762,7 +1777,7 @@ body.st-has-toolbar header.navbar {
   background: var(--st-primary-gradient);
   border: none;
   border-radius: var(--st-radius-sm);
-  color: #fff;
+  color: var(--st-accent-text, #fff) !important;
   font-size: 11px;
   font-weight: 600;
   padding: 4px 11px;
@@ -1776,8 +1791,8 @@ body.st-has-toolbar header.navbar {
   opacity: 0.92;
 }
 #st-options-btn .st-options-icon {
-  font-size: 14px;
-  line-height: 1;
+  display: flex;
+  align-items: center;
 }
 
 /* ── USER AVATAR BUTTON (top toolbar right) ─────────────────────────────────── */
@@ -2500,4 +2515,39 @@ html[dir="rtl"] #st-lang-dropdown {
 }
 .widget-group .grid-col-2 > .widget.dashboard-widget-box {
   min-width: 0;
+}
+
+
+/* ── INLINE SVG ICON NORMALISATION ───────────────────────────────────────────
+   Every toolbar / panel glyph is an inline stroke SVG that inherits the
+   surrounding text colour (currentColor), so it stays monochrome and matches
+   the navbar contrast colour in both light and dark surfaces. */
+#st-top-toolbar svg,
+#st-quick-nav svg,
+#st-module-switch-btn svg,
+#st-options-panel-head svg,
+.st-op-section-head svg,
+#st-lang-dropdown svg {
+  flex-shrink: 0;
+  display: block;
+  color: inherit;
+  stroke: currentColor;
+  fill: none;
+}
+#st-quick-nav a {
+  color: var(--st-sidebar-icon, rgba(255,255,255,0.5));
+}
+#st-module-switch-btn .st-ms-icon,
+#st-options-panel-head h3 .st-op-head-icon,
+.st-op-section-head .st-op-toggle {
+  display: inline-flex;
+  align-items: center;
+}
+#st-options-panel-head h3 {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.st-op-section-head .st-op-toggle {
+  transition: transform var(--st-transition);
 }

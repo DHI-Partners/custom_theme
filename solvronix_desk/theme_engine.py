@@ -906,6 +906,7 @@ def render_css(config, enabled=True):
         "--st-brand": config["brand_color"],
         "--st-primary": config["brand_color"],
         "--st-accent": config["accent_color"],
+        "--st-accent-text": contrast_text(config["accent_color"]),
         "--st-page-bg": config["page_background"],
         "--st-card-bg": config["card_background"],
         "--st-text": config["text_color"],

@@ -413,9 +413,9 @@
     /* Button */
     var $btn = $(
       '<button id="st-module-switch-btn" title="Switch Workspace (Ctrl+M)">' +
-        '<span style="font-size:13px;margin-right:6px;">&#9783;</span>' +
+        '<span class="st-ms-icon" style="margin-right:6px;display:flex;align-items:center;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg></span>' +
         "<span>Workspaces</span>" +
-        '<span class="st-chevron">&#9660;</span>' +
+        '<span class="st-chevron"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>' +
       "</button>"
     );
 
@@ -557,10 +557,10 @@
 
     var $nav = $(
       '<div id="st-quick-nav">' +
-        '<a href="/app" title="' + frappe._("Home") + '">&#8962;</a>' +
-        '<a href="/desk/todo" title="' + frappe._("To-Do") + '">&#9998;</a>' +
-        '<a href="/desk/activity" title="' + frappe._("Activity") + '">&#128338;</a>' +
-        '<a href="/desk/notification-log" title="' + frappe._("Notifications") + '">&#128276;</a>' +
+        '<a href="/app" title="' + frappe._("Home") + '"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 10.5 8.5-7 8.5 7V19a1.5 1.5 0 0 1-1.5 1.5h-14A1.5 1.5 0 0 1 3.5 19z"/><path d="M9.5 20.5v-6.5h5v6.5"/></svg></a>' +
+        '<a href="/desk/todo" title="' + frappe._("To-Do") + '"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5H7.5A1.5 1.5 0 0 0 6 6v13.5A1.5 1.5 0 0 0 7.5 21h9a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H15"/><rect x="9" y="2.5" width="6" height="4" rx="1.2"/><path d="m9.5 13.2 1.9 1.9 3.6-3.6"/></svg></a>' +
+        '<a href="/desk/activity" title="' + frappe._("Activity") + '"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.2 2"/></svg></a>' +
+        '<a href="/desk/notification-log" title="' + frappe._("Notifications") + '"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8.5a6 6 0 0 0-12 0c0 6.5-2.5 8.5-2.5 8.5h17S18 15 18 8.5"/><path d="M13.7 20.5a2 2 0 0 1-3.4 0"/></svg></a>' +
       "</div>"
     );
 
@@ -587,7 +587,7 @@
       '<div class="st-tb-left">' +
         '<span id="st-tb-clock"></span>' +
         '<span class="st-tb-sep"></span>' +
-        '<a id="st-sh-link" href="/desk/smart-home" title="Today\'s View">&#9732; Today\'s View</a>' +
+        '<a id="st-sh-link" href="/desk/smart-home" title="Today\'s View"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M8 3v4M16 3v4M3 10.5h18"/></svg> Today\'s View</a>' +
       "</div>"
     );
 
@@ -612,9 +612,9 @@
     var $langWrap = $('<div id="st-lang-wrapper"></div>');
     var $langBtn = $(
       '<button id="st-lang-btn" title="' + frappe._("Change language") + '">' +
-        '<span class="st-lang-globe">&#127760;</span>' +
+        '<span class="st-lang-globe"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14.5 14.5 0 0 1 0 18a14.5 14.5 0 0 1 0-18"/></svg></span>' +
         '<span id="st-lang-label">' + currentLabel + "</span>" +
-        '<span class="st-lang-chevron">&#9660;</span>' +
+        '<span class="st-lang-chevron"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>' +
       "</button>"
     );
 
@@ -637,9 +637,9 @@
         var isActive = l.code === currentLang;
         var $item = $(
           '<button class="st-lang-item' + (isActive ? " st-active" : "") + '" data-code="' + l.code + '">' +
-            '<span class="st-lang-flag">' + (l.flag || "&#127760;") + '</span>' +
+            '<span class="st-lang-flag">' + (l.flag || '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14.5 14.5 0 0 1 0 18a14.5 14.5 0 0 1 0-18"/></svg>') + '</span>' +
             '<span>' + (l.label || l.code) + '</span>' +
-            (isActive ? '<span class="st-lang-check">&#10003;</span>' : '') +
+            (isActive ? '<span class="st-lang-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span>' : '') +
           "</button>"
         );
         $item.on("click", function () {
@@ -734,8 +734,8 @@
     /* Quick-nav shortcut buttons: Home + To-Do */
     var $qnav = $('<div id="st-tb-quicknav"></div>');
     [
-      { icon: "&#8962;", title: frappe._("Home"),  route: "smart-home" },
-      { icon: "&#9998;", title: frappe._("To-Do"), route: "todo" },
+      { icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 10.5 8.5-7 8.5 7V19a1.5 1.5 0 0 1-1.5 1.5h-14A1.5 1.5 0 0 1 3.5 19z"/><path d="M9.5 20.5v-6.5h5v6.5"/></svg>', title: frappe._("Home"),  route: "smart-home" },
+      { icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5H7.5A1.5 1.5 0 0 0 6 6v13.5A1.5 1.5 0 0 0 7.5 21h9a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H15"/><rect x="9" y="2.5" width="6" height="4" rx="1.2"/><path d="m9.5 13.2 1.9 1.9 3.6-3.6"/></svg>', title: frappe._("To-Do"), route: "todo" },
     ].forEach(function (item) {
       var $btn = $('<button class="st-tb-qn-btn" title="' + item.title + '">' + item.icon + "</button>");
       $btn.on("click", function () { frappe.set_route(item.route); });
@@ -753,7 +753,7 @@
     /* All Options button */
     var $opBtn = $(
       '<button id="st-options-btn">' +
-        '<span class="st-options-icon">&#9776;</span>' +
+        '<span class="st-options-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>' +
         frappe._("All Options") +
       "</button>"
     );
@@ -998,13 +998,13 @@
 
     var $head = $(
       '<div id="st-options-panel-head">' +
-        '<h3>&#9783; ' + frappe._("All Options") + '</h3>' +
-        '<button id="st-options-panel-close" title="' + frappe._("Close") + '">&#10005;</button>' +
+        '<h3><span class="st-op-head-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg></span> ' + frappe._("All Options") + '</h3>' +
+        '<button id="st-options-panel-close" title="' + frappe._("Close") + '"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
       "</div>"
     );
     var $searchWrap = $(
       '<div id="st-options-search-wrap">' +
-        '<input id="st-options-search" type="text" placeholder="&#128269; ' + frappe._("Search workspaces & options…") + '">' +
+        '<input id="st-options-search" type="text" placeholder="' + frappe._("Search workspaces & options…") + '">' +
       "</div>"
     );
     var $body = $('<div id="st-options-body"><p class="st-op-empty">' + frappe._("Loading…") + '</p></div>');
@@ -1158,7 +1158,7 @@
       var $sh = $(
         '<div class="st-op-section-head">' +
           '<span>' + grpName + '</span>' +
-          '<span class="st-op-toggle">&#9660;</span>' +
+          '<span class="st-op-toggle"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>' +
         "</div>"
       );
       var $items = $('<div class="st-op-items" id="' + sectionId + '"></div>');
